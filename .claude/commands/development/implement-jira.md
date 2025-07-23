@@ -81,8 +81,8 @@ This command autonomously transforms a JIRA issue into actionable requirements b
 
 1. **Create timestamped workspace**:
    ```bash
-   mkdir -p ".claude/changes/$(date +%Y-%m-%d-%H%M)-${ISSUE_KEY}"
-   cd ".claude/changes/$(date +%Y-%m-%d-%H%M)-${ISSUE_KEY}"
+   mkdir -p "tasks/$(date +%Y-%m-%d-%H%M)-feature-development-${ISSUE_KEY}"
+   cd "tasks/$(date +%Y-%m-%d-%H%M)-feature-development-${ISSUE_KEY}"
    ```
 
 2. **Initialize tracking**:

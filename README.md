@@ -18,13 +18,23 @@ workspace-root/
 ├── .claude/
 │   ├── bootstrap.md               # Bootstrap instructions for Claude Code
 │   ├── config.md                  # Global configuration and protocols
-│   └── context/                   # Additional context files
-├── workflows/
-│   ├── activity-log-workflow.md   # Activity logging workflow
-│   ├── project-priming-workflow.md # Project setup workflow
-│   └── code-review-workflow.md    # Code review workflow
+│   ├── context/                   # Additional context files
+│   └── commands/                  # Command workflow definitions
+│       ├── development/           # Development-focused commands
+│       │   ├── review.md          # Code review command
+│       │   └── implement-jira.md  # JIRA implementation command
+│       ├── deployment/            # Deployment-focused commands
+│       │   └── check-migrations.md # Migration check command
+│       └── prime.md               # Project setup command
+├── tasks/                         # Active task workspaces
+│   ├── 2025-07-23-1430-feature-development-OCM-456/
+│   ├── 2025-07-23-1445-code-review-alice-auth/
+│   └── 2025-07-23-1500-migration-check-v1.2-v1.3/
 ├── projects/                      # Local project repositories
-│
+│   ├── uhc-clusters-service/      # Example project
+│   │   ├── claude.md              # Project-specific configuration
+│   │   └── [project files]
+│   └── [other projects]/
 └── reports/                       # Generated reports and summaries
     └── weekly-report-YYYY-MM-DD.md
 ```
