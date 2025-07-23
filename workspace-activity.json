@@ -1,0 +1,96 @@
+{
+  "workspace": {
+    "name": "Claude Development Workspace",
+    "created": "2025-07-23T00:00:00Z",
+    "last_updated": "2025-07-23T14:35:30Z"
+  },
+  "active_tasks": [
+    {
+      "id": "task-2025-07-23-1436-design-document",
+      "type": "design-document",
+      "project": "home-lab",
+      "title": "Create design document: n8n RSS AI agent integration with Ollama",
+      "status": "in-progress",
+      "assigned_agent": "claude-agent-1753299359126",
+      "created": "2025-07-23T14:36:00Z",
+      "last_activity": "2025-07-23T14:36:00Z",
+      "context": {
+        "feature_slug": "n8n-rss-ai-agent",
+        "arguments": "in project home-lab i have deployed n8n, i have a workflow that i pull in from RSS feeds, and i parse them and send them to my discord. I want to create an AI agent that i can intigrate with this flow, the agent will connect or leverage my locally hosted ollama server. It will be in the workflow, and will take a list of rss feeds, it will read the content create detailed summaries for me and send back the summary and link in response which will then go to my discord.",
+        "project_alias": "home-lab"
+      },
+      "progress": {
+        "completed_steps": ["bootstrap-init"],
+        "current_step": "activity-log-init",
+        "remaining_steps": ["activity-log-init", "task-setup", "workspace-setup", "codebase-analysis", "discovery-questions", "context-gathering", "expert-questions", "requirements-spec", "design-document"]
+      }
+    }
+  ],
+  "completed_tasks": [
+    {
+      "id": "task-2025-07-23-1432-project-setup",
+      "type": "project-setup",
+      "project": "workspace",
+      "title": "Prime all workspace projects",
+      "status": "completed",
+      "assigned_agent": "claude-agent-1753298358",
+      "created": "2025-07-23T14:32:38Z",
+      "last_activity": "2025-07-23T14:35:30Z",
+      "completed": "2025-07-23T14:35:30Z",
+      "context": {
+        "workspace_config": "workspace-config.json",
+        "command": "prime"
+      },
+      "progress": {
+        "completed_steps": ["bootstrap-init", "activity-log-init", "workspace-config-read", "directory-structure", "project-cloning", "remote-configuration", "branch-checkout", "metadata-update", "verification"],
+        "current_step": "completed",
+        "remaining_steps": []
+      }
+    }
+  ],
+  "activities": [
+    {
+      "id": "activity-1753298358",
+      "timestamp": "2025-07-23T14:32:38Z",
+      "agent_id": "claude-agent-1753298358",
+      "task_id": "task-2025-07-23-1432-project-setup",
+      "type": "step-completion",
+      "project": "workspace",
+      "summary": "Initialized project setup task with activity logging",
+      "details": {
+        "step": "activity-log-init",
+        "bootstrap_loaded": true,
+        "config_loaded": true,
+        "agent_id": "claude-agent-1753298358"
+      }
+    },
+    {
+      "id": "activity-1753298359",
+      "timestamp": "2025-07-23T14:35:30Z",
+      "agent_id": "claude-agent-1753298358",
+      "task_id": "task-2025-07-23-1432-project-setup",
+      "type": "task-completion",
+      "project": "workspace",
+      "summary": "Successfully completed workspace project setup task",
+      "details": {
+        "projects_setup": 1,
+        "directories_created": ["tasks", "reports"],
+        "metadata_updated": true,
+        "verification_passed": true
+      }
+    }
+  ],
+  "metrics": {
+    "total_tasks": 2,
+    "active_tasks": 1,
+    "completed_tasks": 1,
+    "tasks_by_type": {
+      "project-setup": 1,
+      "design-document": 1
+    },
+    "tasks_by_project": {
+      "workspace": 1,
+      "home-lab": 1
+    }
+  }
+}

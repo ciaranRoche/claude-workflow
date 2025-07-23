@@ -16,65 +16,23 @@
     },
     "projects": [
       {
-        "alias": "cs",
-        "name": "uhc-clusters-service",
-        "platform": "gitlab",
-        "url": "https://gitlab.cee.redhat.com/service/uhc-clusters-service.git",
-        "ssh_url": "git@gitlab.cee.redhat.com:service/uhc-clusters-service.git",
-        "description": "This project provides a service that simplifies the creation and management of OpenShift clusters.",
-        "local_path": "./projects/uhc-clusters-service",
-        "branch": "master",
-        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
-      },
-      {
-        "alias": "ocm-cli",
-        "name": "ocm-cli",
+        "alias": "home-lab",
+        "name": "home-lab",
         "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-cli.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-cli.git",
-        "description": "This project contains the ocm command line tool that simplifies the use of the OCM API available at https://api.openshift.com.",
-        "local_path": "./projects/ocm-cli",
+        "url": "https://github.com/ciaranRoche/home-lab.git",
+        "ssh_url": "gigit@github.com:ciaranRoche/home-lab.git",
+        "description": "A comprehensive home lab setup running on Raspberry Pi K3s cluster with self-hosted services, monitoring, and automation.",
+        "local_path": "./projects/home-lab",
         "branch": "main",
-        "tags": ["CLI", "golang", "production", "OCM"],
+        "tags": ["backend", "golang", "production", "postgres", "REST", "K3S", "ansible"],
         "priority": "high",
         "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
-      },
-      {
-        "alias": "ats",
-        "name": "access-transparency-service",
-        "platform": "gitlab",
-        "url": "https://gitlab.cee.redhat.com/ocm/access-transparency-service.git",
-        "ssh_url": "git@gitlab.cee.redhat.com:ocm/access-transparency-service.git",
-        "description": "Access Transparency Service manages access requests and decisions for resources within the scope of OCM",
-        "local_path": "./projects/access-transparency-service",
-        "branch": "main",
-        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
-      },
-      {
-        "alias": "ocm-api-model",
-        "name": "ocm-api-model",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-api-model.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-api-model.git",
-        "description": "This project contains the specification of the OpenShift cluster manager API, also known as the model.",
-        "local_path": "./projects/ocm-api-model",
-        "branch": "main",
-        "tags": ["model", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
+        "last_synced": "2025-07-23T14:35:00Z"
       }
     ],
     "metadata": {
-      "total_projects": 4,
-      "active_projects": 4,
-      "last_updated": "2025-07-23T13:40:00Z"
+      "total_projects": 1,
+      "active_projects": 1,
+      "last_updated": "2025-07-23T14:35:00Z"
     }
   }

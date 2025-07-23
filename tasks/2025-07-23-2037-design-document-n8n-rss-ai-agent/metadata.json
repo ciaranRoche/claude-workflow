@@ -1,0 +1,16 @@
+{
+  "id": "n8n-rss-ai-agent",
+  "started": "2025-07-23T14:36:00Z",
+  "lastUpdated": "2025-07-23T14:37:00Z",
+  "status": "active",
+  "phase": "initial-setup",
+  "progress": {
+    "discovery": { "answered": 0, "total": 5 },
+    "detail": { "answered": 0, "total": 5 }
+  },
+  "contextFiles": [],
+  "relatedFeatures": [],
+  "project": "home-lab",
+  "agentId": "claude-agent-1753299359126",
+  "taskId": "task-2025-07-23-1436-design-document"
+}
