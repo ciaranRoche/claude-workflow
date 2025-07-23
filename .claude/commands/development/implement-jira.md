@@ -112,14 +112,14 @@ This command autonomously transforms a JIRA issue into actionable requirements b
 **Goal**: Understand architecture and identify relevant code patterns
 
 5. **High-level architecture scan**:
-    - Use `mcp__RepoPrompt__get_file_tree` to map project structure
+    - Use Glob tool to explore project structure and file organization
     - Identify: main services, data models, UI components, APIs
     - Document: tech stack, conventions, folder organization
     - Save to: `01-architecture-overview.md`
 
 6. **Pattern recognition**:
-    - Search for similar features using `mcp__RepoPrompt__search`
-    - Analyze existing implementations that match JIRA requirements
+    - Use Grep tool to search for similar features and existing implementations
+    - Analyze patterns that match JIRA requirements using code search
     - Document: reusable patterns, common approaches, integration points
     - Save to: `02-existing-patterns.md`
 
@@ -134,7 +134,7 @@ This command autonomously transforms a JIRA issue into actionable requirements b
 **Goal**: Build deep understanding of relevant code
 
 7. **Targeted file analysis**:
-    - Use `mcp__RepoPrompt__set_selection` for batch file reading
+    - Use Read tool to analyze relevant files identified from pattern search
     - Focus on: components mentioned in JIRA, similar features, shared utilities
     - Analyze: data flow, state management, API contracts, UI patterns
 
