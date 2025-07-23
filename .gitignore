@@ -1,3 +1,5 @@
 /projects
 .claude/settings.local.json
 workspace-activity.json
+/tasks
+/reports
