@@ -58,10 +58,10 @@ workspace-root/
 │   ├── bootstrap.md               # Bootstrap instructions for Claude Code
 │   ├── config.md                  # Global configuration and protocols
 │   └── context/                   # Additional context files
-├── workflows/
-│   ├── activity-log-workflow.md   # Activity logging workflow
-│   ├── project-priming-workflow.md # Project setup workflow
-│   └── code-review-workflow.md    # Code review workflow
+├── commands/
+│   ├── activity-log-workflow.md     # Activity logging system
+│   ├── project-priming-command.md   # Project setup command
+│   └── code-review-command.md       # Code review command
 ├── projects/                      # Local project repositories
 │   ├── uhc-clusters-service/      # Example project
 │   │   ├── claude.md              # Project-specific configuration
@@ -71,17 +71,17 @@ workspace-root/
     └── weekly-report-YYYY-MM-DD.md
 ```
 
-## Available Workflows
+### Available Commands
 
-All workflows integrate with the activity logging system:
+All commands integrate with the activity logging system:
 
-### 1. Project Priming (`project-priming-workflow.md`)
+### 1. Project Priming (`project-priming-command.md`)
 - Sets up all projects from workspace configuration
-- Clones repositories and configures remotes
+- Clones repositories and configures remotes  
 - Updates project metadata and sync status
 - **Always creates**: "project-setup" task type
 
-### 2. Code Review (`code-review-workflow.md`)  
+### 2. Code Review (`code-review-command.md`)
 - Reviews commits from forks with comprehensive analysis
 - Handles security, performance, testing, and documentation
 - Integrates with workspace project configuration
@@ -91,7 +91,7 @@ All workflows integrate with the activity logging system:
 - Manages task lifecycle and agent coordination
 - Tracks all development activities and metrics
 - Generates reports and summaries
-- **Always creates**: Various task types as needed
+- **Core system**: Supports all other commands
 
 ## Multi-Agent Coordination
 

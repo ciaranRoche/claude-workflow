@@ -4,7 +4,7 @@ This file defines workspace-wide settings and protocols that apply to all Claude
 
 ## MANDATORY: Activity Logging Protocol
 
-**Every Claude Code command MUST follow the Activity Logging workflow.**
+**Every Claude Code command MUST follow the Activity Logging protocol defined in `.claude/bootstrap.md`.**
 
 ### Pre-Execution Requirements (ALWAYS DO FIRST):
 
