@@ -1,1 +1,3 @@
 /projects
+.claude/settings.local.json
+workspace-config.json
