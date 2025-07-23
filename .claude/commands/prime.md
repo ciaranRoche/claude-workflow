@@ -1,6 +1,6 @@
 # Project Priming Workflow for Claude Code
 
-This workflow guides Claude Code through setting up all projects from the workspace configuration. Each step is idempotent and checks for existing repositories before attempting operations.
+This workflow guides Claude Code through setting up all projects from the workspace configuration, with mandatory activity logging integration. Each step is idempotent and checks for existing repositories before attempting operations.
 
 ## Prerequisites
 
@@ -8,17 +8,64 @@ This workflow guides Claude Code through setting up all projects from the worksp
 - SSH keys are configured for both GitHub and GitLab
 - Git is installed and configured
 
-## Workflow Instructions
+## MANDATORY FIRST STEPS: Activity Log Integration
+
+### Step 0A: Bootstrap Initialization
+1. **Read Bootstrap Instructions**: Load `.claude/bootstrap.md` for mandatory setup
+2. **Load Global Configuration**: Read `.claude/config.md` for workspace protocols
+3. **Validate Workspace Structure**: Confirm all required files and directories exist
+
+### Step 0B: Activity Log Initialization
+1. **Initialize Activity Log**: Read or create `workspace-activity.json`
+2. **Register Agent Session**: Create unique agent ID (`claude-agent-{timestamp}`)
+3. **Check Active Tasks**: Review existing tasks to prevent conflicts
+4. **Create Project Setup Task**: Generate new task with type "project-setup"
+
+### Step 0C: Task Setup
+Create task record with the following structure:
+```json
+{
+  "id": "task-{YYYY-MM-DD-HHmm}-project-setup",
+  "type": "project-setup",
+  "project": "workspace",
+  "title": "Prime all workspace projects",
+  "status": "in-progress",
+  "assigned_agent": "claude-agent-{timestamp}",
+  "created": "2025-07-23T10:00:00Z",
+  "last_activity": "2025-07-23T14:30:00Z",
+  "context": {
+    "workspace_config": "workspace-config.json",
+    "projects_count": "{total-projects}"
+  },
+  "progress": {
+    "completed_steps": [],
+    "current_step": "workspace-config-read",
+    "remaining_steps": ["workspace-config-read", "directory-structure", "project-cloning", "remote-configuration", "branch-checkout", "metadata-update", "verification"]
+  }
+}
+```
+
+## Core Workflow Steps
 
 ### Step 1: Read Workspace Configuration
 
+**Log Progress**: Update task progress to "workspace-config-read"
+
 Claude, please read the `workspace-config.json` file to understand the project structure and user configuration. Extract the user's GitHub and GitLab usernames, and identify all active projects that need to be set up.
+
+**Activity Logging**: Record workspace configuration loading and project inventory
 
 ### Step 2: Create Project Directory Structure
 
+**Log Progress**: Update task progress to "directory-structure"
+
 For each active project in the configuration, create the necessary directory structure. Check if the `projects` directory exists, and create it if it doesn't. Then create subdirectories for each project based on their `local_path` configuration.
 
+**Activity Logging**: Record directory creation results for each project
+
 ### Step 3: Clone Projects (Idempotent)
+
+**Log Progress**: Update task progress to "project-cloning"
 
 For each active project, perform the following idempotent clone operation:
 
@@ -30,7 +77,11 @@ For each active project, perform the following idempotent clone operation:
    - Verify the `origin` remote points to the correct SSH URL
    - Update the remote URL if necessary
 
+**Activity Logging**: Record clone/validation results for each project
+
 ### Step 4: Configure Project Remotes
+
+**Log Progress**: Update task progress to "remote-configuration"
 
 For each project, set up the remote configuration based on the workspace config:
 
@@ -41,7 +92,11 @@ For each project, set up the remote configuration based on the workspace config:
 3. Your fork remote gets named after your username, making it clear when pushing to your fork vs upstream
 4. Use the SSH URLs from the project configuration for secure authentication
 
+**Activity Logging**: Record remote configuration results for each project
+
 ### Step 5: Fetch and Checkout Branches
+
+**Log Progress**: Update task progress to "branch-checkout"
 
 For each project:
 
@@ -50,13 +105,19 @@ For each project:
 3. If the branch doesn't exist locally but exists on the remote, create and track it
 4. If neither local nor remote branch exists, stay on the default branch
 
+**Activity Logging**: Record branch checkout results for each project
+
 ### Step 6: Update Project Metadata
+
+**Log Progress**: Update task progress to "metadata-update"
 
 For each successfully configured project, update its metadata in the workspace configuration:
 
 1. Set the `last_synced` field to the current timestamp (ISO format)
 2. Update any project status information if applicable
 3. Save the updated configuration back to `workspace-config.json`
+
+**Activity Logging**: Record metadata updates and configuration saves
 
 ### Step 7: Update Workspace Metadata
 
@@ -69,6 +130,8 @@ Update the workspace-level metadata section:
 
 ### Step 8: Verification
 
+**Log Progress**: Update task progress to "verification"
+
 After setting up each project, verify the configuration:
 
 1. List all remotes for each project to confirm correct setup
@@ -76,21 +139,37 @@ After setting up each project, verify the configuration:
 3. Display a summary of successfully configured projects
 4. Confirm the workspace metadata has been updated correctly
 
-## Example Commands for Claude Code
+**Activity Logging**: Record verification results and final setup summary
 
-Here are example commands you can give to Claude Code to execute this workflow:
+## MANDATORY FINAL STEPS: Activity Log Completion
+
+### Step 9: Complete Task and Update Metrics
+
+1. **Mark Task Complete**: Update task status to "completed" in activity log
+2. **Record Final Results**: Log comprehensive project setup summary and results
+3. **Update Workspace Metrics**: Refresh counters and statistics
+4. **Save Activity Log**: Persist all changes to `workspace-activity.json`
+5. **Update Workspace Timestamp**: Set `last_updated` in workspace config
+
+### Step 10: Generate Artifacts
+
+1. **Save Setup Report**: Create `project-setup-{timestamp}.md` in reports directory
+2. **Update Project Metadata**: Update `last_synced` for all projects
+3. **Log Task Completion**: Record final activity entry with outcomes
+
+## Usage Examples
 
 **Initial Setup:**
-"Read the workspace-config.json file and set up all active projects. For each project, clone it using SSH if it doesn't exist, or verify the remote configuration if it does exist."
+"Prime all workspace projects using the project setup workflow"
 
 **Specific Project Setup:**
-"Set up the 'web-app' project from the workspace config. Clone it to the specified local path using SSH, and configure the origin remote."
+"Set up the web-app project from the workspace config"
 
 **Verification:**
-"Check the git remote configuration for all projects in the workspace and show me a status summary."
+"Check the git remote configuration for all projects in the workspace"
 
 **Update Existing Projects:**
-"For all existing projects in the workspace, update their remote URLs to match the current workspace configuration and fetch the latest changes."
+"Update all existing projects to match the current workspace configuration"
 
 ## Project-Specific Instructions
 
@@ -113,26 +192,29 @@ Here are example commands you can give to Claude Code to execute this workflow:
 
 After completing this workflow:
 
-1. All active projects are cloned to their specified local paths
-2. Each project has correctly configured `origin` (service/upstream) and username remotes (your personal fork)
-3. Projects are on their specified branches
-4. Project-level `last_synced` timestamps are updated in the workspace config
-5. Workspace metadata (`total_projects`, `active_projects`, `last_updated`) is refreshed
-6. The workspace is ready for multi-project development
-7. All operations are idempotent and safe to re-run
+1. **Complete Project Setup**: All active projects cloned and configured correctly
+2. **Complete Activity Trail**: Full audit log of project setup process and results
+3. **Task Coordination**: Other agents can see project setup status and results
+4. **Ready Workspace**: All projects ready for multi-project development
+5. **Workspace Integration**: Project setup integrated with overall development metrics
+6. **Report Generation**: Structured report available for workspace status
+7. **Idempotent Operations**: All operations safe to re-run
 
 ## Error Handling
 
 If any step fails:
-- Continue with remaining projects
-- Report which projects were successfully configured
-- Note any projects that encountered issues
-- Provide specific error details for troubleshooting
+- **Log the Failure**: Record error details in activity log
+- **Update Task Status**: Mark task as "failed" with error context
+- **Continue Where Possible**: Complete remaining project setups
+- **Provide Recovery Guidance**: Offer specific steps to resolve issues
+- **Maintain State**: Ensure partial progress is not lost
 
 ## Usage with Claude Code
 
-To execute this workflow, simply tell Claude Code:
+To execute this workflow:
 
-> "Follow the project priming workflow to set up my development workspace. Read the claude-workspace.json configuration and clone/configure all active projects according to the specifications."
+> "Prime all workspace projects using the project setup workflow"
 
-Claude Code will then work through each step, providing updates on progress and any issues encountered.
+> "Set up the development workspace according to workspace-config.json"
+
+Claude Code will automatically integrate with the activity logging system and provide complete tracking of the project setup process.

@@ -26,13 +26,14 @@ This workflow guides Claude Code through conducting a comprehensive code review 
 Create task record with the following structure:
 ```json
 {
-  "id": "task-{timestamp}",
+  "id": "task-{YYYY-MM-DD-HHmm}-code-review",
   "type": "code-review",
   "project": "{project-alias}",
   "title": "Review {fork-owner}/{branch} - {commit-count} commits",
   "status": "in-progress",
-  "assigned_agent": "{agent-id}",
-  "created": "{timestamp}",
+  "assigned_agent": "claude-agent-{timestamp}",
+  "created": "2025-07-23T10:00:00Z",
+  "last_activity": "2025-07-23T14:30:00Z",
   "context": {
     "fork_owner": "{fork-owner}",
     "branch": "{branch-name}",
