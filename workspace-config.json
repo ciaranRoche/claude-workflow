@@ -1,0 +1,66 @@
+{
+    "workspace": {
+      "name": "My Development Workspace",
+      "version": "1.0.0",
+      "created": "2025-07-23"
+    },
+    "user": {
+      "github_username": "ciaranRoche",
+      "gitlab_username": "croche"
+    },
+    "settings": {
+      "default_clone_path": "./projects",
+      "default_branch": "main",
+      "auto_pull_updates": true,
+      "preferred_git_protocol": "ssh"
+    },
+    "projects": [
+      {
+        "alias": "cs",
+        "name": "uhc-clusters-service",
+        "platform": "gitlab",
+        "url": "https://gitlab.cee.redhat.com/service/uhc-clusters-service.git",
+        "ssh_url": "git@gitlab.cee.redhat.com:service/uhc-clusters-service.git",
+        "description": "This project provides a service that simplifies the creation and management of OpenShift clusters.",
+        "local_path": "./projects/uhc-clusters-service",
+        "branch": "master",
+        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-23T12:00:00Z"
+      },
+      {
+        "alias": "ocm-cli",
+        "name": "ocm-cli",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-cli.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-cli.git",
+        "description": "This project contains the ocm command line tool that simplifies the use of the OCM API available at https://api.openshift.com.",
+        "local_path": "./projects/ocm-cli",
+        "branch": "main",
+        "tags": ["CLI", "golang", "production", "OCM"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-23T12:00:00Z"
+      },
+      {
+        "alias": "ats",
+        "name": "access-transparency-service",
+        "platform": "gitlab",
+        "url": "https://gitlab.cee.redhat.com/ocm/access-transparency-service.git",
+        "ssh_url": "git@gitlab.cee.redhat.com:ocm/access-transparency-service.git",
+        "description": "Access Transparency Service manages access requests and decisions for resources within the scope of OCM",
+        "local_path": "./projects/access-transparency-service",
+        "branch": "main",
+        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-23T12:00:00Z"
+      }
+    ],
+    "metadata": {
+      "total_projects": 3,
+      "active_projects": 3,
+      "last_updated": "2025-07-23T12:00:00Z"
+    }
+  }
