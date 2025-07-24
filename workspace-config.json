@@ -27,7 +27,7 @@
         "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
         "priority": "high",
         "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
+        "last_synced": "2025-07-24T11:41:34Z"
       },
       {
         "alias": "ocm-cli",
@@ -41,7 +41,7 @@
         "tags": ["CLI", "golang", "production", "OCM"],
         "priority": "high",
         "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
+        "last_synced": "2025-07-24T11:41:34Z"
       },
       {
         "alias": "ats",
@@ -55,7 +55,7 @@
         "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
         "priority": "high",
         "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
+        "last_synced": "2025-07-24T11:41:34Z"
       },
       {
         "alias": "ocm-api-model",
@@ -69,12 +69,96 @@
         "tags": ["model", "REST", "OCM"],
         "priority": "high",
         "active": true,
-        "last_synced": "2025-07-23T13:40:00Z"
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "ocm-api-metamodel",
+        "name": "ocm-api-metamodel",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-api-metamodel.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-api-metamodel.git",
+        "description": "This project contains the code for the ocm-metamodel-tool command line utility, which is used to generate code from the API model.",
+        "local_path": "./projects/ocm-api-metamodel",
+        "branch": "main",
+        "tags": ["model", "OCM"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "ocm-sdk-go",
+        "name": "ocm-sdk-go",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-sdk-go.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-sdk-go.git",
+        "description": "This project contains a Go library that simplifies the use of the OCM API, available in api.openshift.com.",
+        "local_path": "./projects/ocm-sdk-go",
+        "branch": "main",
+        "tags": ["SDK", "OCM", "Golang"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "trex",
+        "name": "rh-trex",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/rh-trex.git",
+        "ssh_url": "git@github.com:openshift-online/rh-trex.git",
+        "description": "TRex is Red Hat's Trusted Rest EXample - a production-ready microservice template for rapid API development.",
+        "local_path": "./projects/rh-trex",
+        "branch": "main",
+        "tags": ["SDK", "OCM", "Golang", "REST", "Postgres", "Backend"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "ocm-support-cli",
+        "name": "ocm-support-cli",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-support-cli.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-support-cli.git",
+        "description": "ocm-support-cli is a tool that extends the ocm-cli by adding commands that are useful for engineers that deal support requests.",
+        "local_path": "./projects/ocm-support-cli",
+        "branch": "main",
+        "tags": ["CLI", "OCM", "Golang"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "ocm-common",
+        "name": "ocm-common",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-common.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-common.git",
+        "description": "This project contains utility functions intended for sharing across OCM clients and services. Its objective is to streamline OCM codebases by eliminating duplicate code found within them.",
+        "local_path": "./projects/ocm-common-github",
+        "branch": "main",
+        "tags": ["OCM", "Golang"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-07-24T11:41:34Z"
+      },
+      {
+        "alias": "ocm-service-common",
+        "name": "ocm-service-common",
+        "platform": "github",
+        "url": "https://github.com/openshift-online/ocm-service-common.git",
+        "ssh_url": "git@github.com:openshift-online/ocm-service-common.git",
+        "description": "Common service utilities and shared functionality for OCM services and microservices development.",
+        "local_path": "./projects/ocm-service-common",
+        "branch": "master",
+        "tags": ["OCM", "Golang", "Backend", "Services"],
+        "priority": "medium",
+        "active": true,
+        "last_synced": "2025-07-24T11:43:00Z"
       }
     ],
     "metadata": {
-      "total_projects": 4,
-      "active_projects": 4,
-      "last_updated": "2025-07-23T13:40:00Z"
+      "total_projects": 10,
+      "active_projects": 10,
+      "last_updated": "2025-07-24T11:43:00Z"
     }
   }
