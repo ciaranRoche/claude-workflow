@@ -8,3 +8,6 @@
 workspace-activity.json
 /tasks
 /reports
+
+# IDE files
+.idea/

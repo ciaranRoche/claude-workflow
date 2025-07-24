@@ -25,7 +25,11 @@ workspace-root/
 │       │   └── implement-jira.md  # JIRA implementation command
 │       ├── deployment/            # Deployment-focused commands
 │       │   └── check-migrations.md # Migration check command
-│       └── prime.md               # Project setup command
+│       ├── design/                # Design-focused commands
+│       │   └── create-design-document.md # Design document creation
+│       └── workspace/             # Workspace management commands
+│           ├── prime.md           # Project setup command
+│           └── pull.md            # Workspace update command
 ├── tasks/                         # Active task workspaces
 │   ├── 2025-07-23-1430-feature-development-OCM-456/
 │   ├── 2025-07-23-1445-code-review-alice-auth/
@@ -83,6 +87,7 @@ claude
 
 **Common commands:**
 - `/prime` - Set up or refresh all projects
+- `/pull` - Pull latest changes from origin main
 - Work on specific projects by navigating to `projects/<project-name>/`
 - All activity is automatically tracked in `workspace-activity.json`
 
@@ -206,6 +211,7 @@ Generate custom reports for specific time periods or projects.
 
 **Workspace Commands:**
 - `/prime` - Reset and configure all projects
+- `/pull` - Pull latest changes from origin main
 - Check `workspace-activity.json` for current tasks
 - Review individual project `claude.md` files for specific guidelines
 
