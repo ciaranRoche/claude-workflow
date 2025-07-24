@@ -49,7 +49,20 @@ workspace-root/
    cd <workspace-directory>
    ```
 
-2. **Prime the workspace:**
+2. **Update configuration for your environment:**
+   ```bash
+   # Edit workspace-config.json to update usernames and projects
+   # Update the "user" section with your GitHub/GitLab usernames:
+   {
+     "user": {
+       "github_username": "your-github-username",
+       "gitlab_username": "your-gitlab-username"
+     }
+   }
+   # Add/remove projects in the "projects" array as needed
+   ```
+
+3. **Prime the workspace:**
    ```bash
    # Using Claude Code
    /prime
