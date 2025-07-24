@@ -68,7 +68,8 @@ workspace-root/
 │       │   └── create-design-document.md # Design document creation
 │       └── workspace/             # Workspace management commands  
 │           ├── prime.md           # Project setup command
-│           └── pull.md            # Workspace update command
+│           ├── pull.md            # Workspace update command
+│           └── status.md          # Activity status and task management
 ├── tasks/                         # Active task workspaces
 │   ├── 2025-07-23-1430-feature-development-OCM-456/
 │   ├── 2025-07-23-1445-code-review-alice-auth/
@@ -98,13 +99,20 @@ All commands integrate with the activity logging system:
 - Ensures workspace is up to date with remote
 - **Always creates**: "workspace-pull" task type
 
-### 3. Code Review (`development/review.md`)
+### 3. Workspace Status (`workspace/status.md`)
+- Displays comprehensive workspace activity overview
+- Shows completed tasks and interactive task management
+- Enables resumption of incomplete tasks
+- Provides task selection and continuation interface
+- **Always creates**: "workspace-status" task type
+
+### 4. Code Review (`development/review.md`)
 - Reviews commits from forks with comprehensive analysis
 - Handles security, performance, testing, and documentation
 - Integrates with workspace project configuration
 - **Always creates**: "code-review" task type
 
-### 4. Activity Logging (`activity-log-workflow.md`)
+### 5. Activity Logging (`activity-log-workflow.md`)
 - Manages task lifecycle and agent coordination
 - Tracks all development activities and metrics
 - Generates reports and summaries
