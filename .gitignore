@@ -1,5 +1,10 @@
-/projects
+# Claude Code configuration
 .claude/settings.local.json
+
+# Project directories
+/projects
+
+# Workspace tracking and output
 workspace-activity.json
 /tasks
 /reports
