@@ -109,11 +109,26 @@ This file is automatically loaded by Claude Code and contains critical setup ins
 
 ## Available Commands
 
-All commands are located in the workspace root and must integrate with activity logging:
+All commands are located in `.claude/commands/` directory and must integrate with activity logging:
 
-- **Project Priming**: `project-priming-command.md`
-- **Code Review**: `code-review-command.md`
-- **Activity Logging**: `activity-log-workflow.md` (core system)
+### Workspace Management
+- **Project Priming**: `workspace/prime.md` - Setup all projects from workspace configuration
+- **Workspace Pull**: `workspace/pull.md` - Pull latest changes from origin main
+- **Workspace Status**: `workspace/status.md` - Review activity and manage tasks
+- **Query Logging**: `workspace/query.md` - Process user queries with activity tracking
+
+### Development Operations
+- **Code Review**: `development/review.md` - Comprehensive code review workflow
+- **JIRA Implementation**: `development/implement-jira.md` - JIRA issue analysis and implementation
+
+### Design Operations
+- **Design Documents**: `design/create-design-document.md` - Requirements gathering and design creation
+
+### Deployment Operations
+- **Migration Check**: `deployment/check-migrations.md` - Database migration analysis
+
+### Core System
+- **Activity Logging**: `activity-log-workflow.md` (core system supporting all commands)
 
 ## Agent Coordination Protocol
 
