@@ -12,6 +12,9 @@ This documentation directory provides comprehensive guides for setting up and us
 
 ## Documentation Structure
 
+### Core Guides
+- **[Claude Code Agents](/home/croche/Work/projects/docs/claude-code-agents.md)** - Complete guide to using specialized Claude Code agents for focused tasks
+
 ### Setup Guides
 - **[Prerequisites](/home/croche/Work/projects/docs/setup/prerequisites.md)** - All CLI tools required by workspace commands
 - **[GitHub CLI Setup](/home/croche/Work/projects/docs/setup/github-cli-setup.md)** - GitHub CLI installation, authentication, and configuration
@@ -38,6 +41,24 @@ The following workspace commands require GitHub CLI (`gh`):
 ### JIRA CLI Commands
 The following workspace commands require JIRA CLI (`jira`):
 - **JIRA Implementation** (`development/implement-jira.md`) - Fetches JIRA issues and implements requirements
+
+## Available Claude Code Agents
+
+The workspace includes specialized agents for focused tasks:
+
+### Documentation Agents
+- **docs-sync-specialist** - Ensures documentation stays synchronized with recent code changes
+  - Use after implementing new features or APIs
+  - Automatically identifies and updates outdated documentation
+  - Maintains consistency across all documentation files
+
+### Productivity Agents  
+- **conversation-note-taker** - Captures and organizes key information from conversations
+  - Creates structured notes from technical discussions
+  - Documents architectural decisions and trade-offs
+  - Preserves important insights for future reference
+
+**Learn more**: See the complete [Claude Code Agents Guide](/home/croche/Work/projects/docs/claude-code-agents.md) for detailed usage instructions and best practices.
 
 ## Support
 
