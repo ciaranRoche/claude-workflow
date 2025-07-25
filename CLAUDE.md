@@ -69,7 +69,8 @@ workspace-root/
 │       └── workspace/             # Workspace management commands  
 │           ├── prime.md           # Project setup command
 │           ├── pull.md            # Workspace update command
-│           └── status.md          # Activity status and task management
+│           ├── status.md          # Activity status and task management
+│           └── query.md           # User query logging and tracking
 ├── tasks/                         # Active task workspaces
 │   ├── 2025-07-23-1430-feature-development-OCM-456/
 │   ├── 2025-07-23-1445-code-review-alice-auth/
@@ -117,6 +118,12 @@ All commands integrate with the activity logging system:
 - Tracks all development activities and metrics
 - Generates reports and summaries
 - **Core system**: Supports all other commands
+
+### 6. Query Logging (`workspace/query.md`)
+- Processes user queries with comprehensive activity logging
+- Tracks query patterns and knowledge gaps
+- Enables learning progression analysis
+- **Always creates**: "user-query" task type
 
 ## Multi-Agent Coordination
 

@@ -30,7 +30,8 @@ workspace-root/
 │       └── workspace/             # Workspace management commands
 │           ├── prime.md           # Project setup command
 │           ├── pull.md            # Workspace update command
-│           └── status.md          # Activity status and task management
+│           ├── status.md          # Activity status and task management
+│           └── query.md           # User query logging and tracking
 ├── tasks/                         # Active task workspaces
 │   ├── 2025-07-23-1430-feature-development-OCM-456/
 │   ├── 2025-07-23-1445-code-review-alice-auth/
@@ -90,6 +91,7 @@ claude
 - `/prime` - Set up or refresh all projects
 - `/pull` - Pull latest changes from origin main
 - `/status` - Review workspace activity and manage tasks
+- `/query` - Submit queries with comprehensive activity logging
 - Work on specific projects by navigating to `projects/<project-name>/`
 - All activity is automatically tracked in `workspace-activity.json`
 
@@ -215,6 +217,7 @@ Generate custom reports for specific time periods or projects.
 - `/prime` - Reset and configure all projects
 - `/pull` - Pull latest changes from origin main
 - `/status` - Review workspace activity and manage tasks interactively
+- `/query` - Submit queries with comprehensive logging and tracking
 - Check `workspace-activity.json` for current tasks
 - Review individual project `claude.md` files for specific guidelines
 
