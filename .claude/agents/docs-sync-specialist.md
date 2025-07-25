@@ -1,6 +1,14 @@
 ---
 name: docs-sync-specialist
-description: Use this agent when you need to ensure documentation stays synchronized with recent code changes, after implementing new features, modifying APIs, updating configuration files, or when preparing for releases. Examples: <example>Context: User has just implemented a new authentication system with JWT tokens. user: 'I just finished implementing JWT authentication in the auth service' assistant: 'Great work on the JWT implementation! Let me use the docs-sync-specialist agent to review the recent changes and update any relevant documentation.' <commentary>Since new authentication functionality was added, use the docs-sync-specialist to ensure API docs, setup guides, and security documentation reflect the JWT implementation.</commentary></example> <example>Context: User has modified database schema and wants to ensure docs are current. user: 'I updated the user table schema to include new fields for profile data' assistant: 'I'll use the docs-sync-specialist agent to review the schema changes and update the database documentation accordingly.' <commentary>Database schema changes require documentation updates for API references, migration guides, and data model documentation.</commentary></example>
+description: Use this agent when you need to ensure documentation stays synchronized with recent code changes, after implementing new features, modifying APIs, updating configuration files, or when preparing for releases. The agent analyzes recent commits and updates relevant documentation files to maintain accuracy and consistency.
+
+Examples:
+- "I just finished implementing JWT authentication in the auth service"
+- "I updated the user table schema to include new fields for profile data"  
+- "Can you review the recent API changes and update the documentation?"
+- "We need to prepare documentation for the upcoming release"
+
+This agent specializes in identifying documentation gaps, updating existing docs rather than creating new ones, and ensuring examples reflect current implementation.
 color: cyan
 ---
 
