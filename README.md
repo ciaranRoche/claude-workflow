@@ -18,6 +18,7 @@ workspace-root/
 ├── .claude/
 │   ├── bootstrap.md               # Bootstrap instructions for Claude Code
 │   ├── config.md                  # Global configuration and protocols
+│   ├── settings.json              # Claude Code settings and hooks configuration
 │   ├── context/                   # Additional context files
 │   └── commands/                  # Command workflow definitions
 │       ├── development/           # Development-focused commands
