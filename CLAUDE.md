@@ -23,27 +23,56 @@ This is not optional - it's required for:
 - Audit trails and reporting
 - Conflict prevention and resolution
 
-### Integration Checklist
+### MANDATORY ENFORCEMENT: Protocol Violation Prevention
 
-Before starting any command:
-- [ ] Read `.claude/bootstrap.md` for initialization sequence
-- [ ] Load global configuration from `.claude/config.md`
-- [ ] Initialize or update `workspace-activity.json`
-- [ ] Create/resume appropriate task entry
-- [ ] Check for conflicts with other active agents
-- [ ] Load project-specific context if applicable
+**FAILURE TO FOLLOW THESE STEPS WILL RESULT IN OPERATION TERMINATION**
 
-During command execution:
-- [ ] Log significant progress steps
-- [ ] Update task progress indicators  
-- [ ] Record findings and decisions
-- [ ] Maintain state for recovery
+1. **Bootstrap Files Must Be Read First**: 
+   - `.claude/bootstrap.md` and `.claude/config.md` are MANDATORY
+   - If either file cannot be read, STOP immediately and report error
+   - No exceptions - these files contain critical protocols
 
-After command completion:
-- [ ] Update task status (completed/paused/failed)
-- [ ] Log final results and artifacts
-- [ ] Update workspace metrics
-- [ ] Save all state changes
+2. **Activity Log Integration is NON-NEGOTIABLE**:
+   - `workspace-activity.json` must be initialized/updated before ANY work
+   - Task entry MUST be created with proper structure and tracking
+   - Progress MUST be logged at each major step
+   - Final status MUST be updated with complete results
+
+3. **Step Skipping is PROHIBITED**:
+   - Each command defines mandatory steps in sequence
+   - ALL steps must be completed in order
+   - No shortcuts or "efficiency" optimizations allowed
+   - I[.gitignore](.gitignore)f a step fails, log the failure and either fix or abort
+
+### Integration Checklist (MANDATORY - NO EXCEPTIONS)
+
+**Before starting any command (MUST COMPLETE ALL):**
+- [ ] **CRITICAL**: Read `.claude/bootstrap.md` for initialization sequence
+- [ ] **CRITICAL**: Load global configuration from `.claude/config.md`
+- [ ] **CRITICAL**: Initialize or update `workspace-activity.json`
+- [ ] **CRITICAL**: Create/resume appropriate task entry with complete context
+- [ ] **CRITICAL**: Check for conflicts with other active agents
+- [ ] **CRITICAL**: Load project-specific context if applicable
+
+**During command execution (CONTINUOUS MONITORING):**
+- [ ] **MANDATORY**: Log significant progress steps in real-time
+- [ ] **MANDATORY**: Update task progress indicators at each major step
+- [ ] **MANDATORY**: Record findings and decisions with complete context
+- [ ] **MANDATORY**: Maintain state for recovery at all times
+
+**After command completion (FINAL REQUIREMENTS):**
+- [ ] **CRITICAL**: Update task status (completed/paused/failed) with results
+- [ ] **CRITICAL**: Log final results and artifacts created/modified
+- [ ] **CRITICAL**: Update workspace metrics and counters
+- [ ] **CRITICAL**: Save all state changes to persistent storage
+
+### Enforcement Mechanisms
+
+1. **Pre-Flight Checks**: Before any operation, validate all required files exist
+2. **Step Verification**: Each step must be logged and verified before proceeding
+3. **Progress Auditing**: Regular checks that progress is being properly recorded
+4. **Completion Validation**: Final verification that all requirements are met
+5. **Error Recovery**: If any step fails, full rollback and error reporting
 
 ## Project Structure
 
@@ -64,7 +93,14 @@ workspace-root/
 │       │   └── implement-jira.md  # JIRA implementation command
 │       ├── deployment/            # Deployment-focused commands
 │       │   └── check-migrations.md # Migration check command
-│       └── prime.md               # Project setup command
+│       ├── design/                # Design-focused commands
+│       │   ├── create-design-document.md # Design document creation
+│       │   └── review-design-document.md # Design document review
+│       └── workspace/             # Workspace management commands  
+│           ├── prime.md           # Project setup command
+│           ├── pull.md            # Workspace update command
+│           ├── status.md          # Activity status and task management
+│           └── query.md           # User query logging and tracking
 ├── tasks/                         # Active task workspaces
 │   ├── 2025-07-23-1430-feature-development-OCM-456/
 │   ├── 2025-07-23-1445-code-review-alice-auth/
@@ -74,6 +110,18 @@ workspace-root/
 │   │   ├── claude.md              # Project-specific configuration
 │   │   └── [project files]
 │   └── [other projects]/
+├── reviews/                       # Design document review outputs
+│   └── YYYY-MM-DD-HHMM-design-review-{feature}/
+│       ├── 00-review-request.md   # Original review request
+│       ├── 01-original-design.md  # Copy of design document being reviewed
+│       ├── 02-analysis-findings.md # Structural and technical analysis
+│       ├── 03-alternative-research.md # Industry best practices and alternatives
+│       ├── 04-improvement-analysis.md # Gap analysis and improvements
+│       ├── 05-expert-questions.md # Review questions for stakeholders
+│       ├── 06-expert-answers.md   # Stakeholder responses
+│       ├── 07-recommendations.md  # Prioritized improvement recommendations
+│       ├── 08-review-report.md    # Comprehensive final report
+│       └── metadata.json          # Review tracking and progress
 └── reports/                       # Generated reports and summaries
     └── weekly-report-YYYY-MM-DD.md
 ```
@@ -82,23 +130,55 @@ workspace-root/
 
 All commands integrate with the activity logging system:
 
-### 1. Project Priming (`project-priming-command.md`)
+### 1. Project Priming (`workspace/prime.md`)
 - Sets up all projects from workspace configuration
 - Clones repositories and configures remotes  
 - Updates project metadata and sync status
 - **Always creates**: "project-setup" task type
 
-### 2. Code Review (`code-review-command.md`)
+### 2. Workspace Pull (`workspace/pull.md`)
+- Pulls latest changes from origin main
+- Handles local changes and merge conflicts
+- Ensures workspace is up to date with remote
+- **Always creates**: "workspace-pull" task type
+
+### 3. Workspace Status (`workspace/status.md`)
+- Displays comprehensive workspace activity overview
+- Shows completed tasks and interactive task management
+- Enables resumption of incomplete tasks
+- Provides task selection and continuation interface
+- **Always creates**: "workspace-status" task type
+
+### 4. Code Review (`development/review.md`)
 - Reviews commits from forks with comprehensive analysis
 - Handles security, performance, testing, and documentation
 - Integrates with workspace project configuration
 - **Always creates**: "code-review" task type
 
-### 3. Activity Logging (`activity-log-workflow.md`)
+### 5. Activity Logging (`activity-log-workflow.md`)
 - Manages task lifecycle and agent coordination
 - Tracks all development activities and metrics
 - Generates reports and summaries
 - **Core system**: Supports all other commands
+
+### 6. Query Logging (`workspace/query.md`)
+- Processes user queries with comprehensive activity logging
+- Tracks query patterns and knowledge gaps
+- Enables learning progression analysis
+- **Always creates**: "user-query" task type
+
+### 7. Design Document Creation (`design/create-design-document.md`)
+- Creates comprehensive design documents for new features
+- Integrates with GitHub for issue tracking and collaboration
+- Uses structured templates and requirements analysis
+- **Always creates**: "design-document" task type
+
+### 8. Design Document Review (`design/review-design-document.md`)
+- Comprehensive review of existing design documents with alternative research
+- Generates structured review reports with improvement recommendations
+- Creates expert consultation workflows for stakeholder input
+- Outputs detailed analysis in timestamped `/reviews` directories
+- **Always creates**: "design-review" task type
 
 ## Multi-Agent Coordination
 
@@ -116,6 +196,51 @@ This workspace supports multiple Claude Code agents working simultaneously:
 - Use descriptive task titles and clear progress updates
 - Log significant decisions for other agents to understand
 - Complete tasks cleanly or mark them for handoff
+
+## PROTOCOL COMPLIANCE AND CONSEQUENCES
+
+### Zero Tolerance Policy for Step Skipping
+
+**This workspace enforces a zero-tolerance policy for skipping mandatory steps.**
+
+#### Immediate Consequences for Violations:
+1. **Task Termination**: Any operation that skips required steps will be immediately terminated
+2. **Error Logging**: All violations are logged in the activity log for audit purposes
+3. **Agent Flagging**: Repeated violations result in agent performance flags
+4. **Manual Override Required**: Recovery requires manual intervention and verification
+
+#### Common Violations and Prevention:
+- **Skipping Bootstrap**: Attempting work without reading `.claude/bootstrap.md` and `.claude/config.md`
+- **Missing Activity Log**: Starting work without proper task creation in `workspace-activity.json`
+- **Progress Gaps**: Failing to log intermediate steps and progress updates
+- **Incomplete Finalization**: Not properly updating final task status and metrics
+
+#### Recovery Procedures:
+1. **Immediate Stop**: Halt all current operations
+2. **State Assessment**: Review what steps were completed vs. required
+3. **Rollback**: Undo any partial work that lacks proper tracking
+4. **Proper Restart**: Begin again following complete protocol
+5. **Verification**: Confirm all mandatory steps are completed before proceeding
+
+### Protocol Validation Checkpoints
+
+**Every operation must pass these validation points:**
+
+1. **Initialization Checkpoint**: 
+   - Bootstrap files successfully read ✓
+   - Activity log properly initialized ✓
+   - Task entry created with complete context ✓
+
+2. **Progress Checkpoint** (repeated throughout execution):
+   - Current step clearly identified and logged ✓
+   - Progress indicators updated in real-time ✓
+   - Intermediate results properly recorded ✓
+
+3. **Completion Checkpoint**:
+   - Final task status updated with results ✓
+   - All artifacts and changes documented ✓
+   - Workspace metrics updated ✓
+   - State changes persisted ✓
 
 ## Project-Specific Integration
 
