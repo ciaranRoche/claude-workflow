@@ -4,7 +4,7 @@ Complete installation and configuration guide for GitHub CLI (`gh`) to work with
 
 ## Overview
 
-GitHub CLI is required by 6 workspace commands for repository management, pull request operations, and GitHub API interactions. This guide covers installation, authentication, and configuration for all supported platforms.
+GitHub CLI is required by 7 workspace commands for repository management, pull request operations, and GitHub API interactions. This guide covers installation, authentication, and configuration for all supported platforms.
 
 ## Installation
 
@@ -245,6 +245,12 @@ Once configured, these workspace commands will use GitHub CLI:
 - Creates GitHub issues for design docs
 - Manages design review workflow
 - Links documentation to code changes
+
+### Design Document Review (`design/review-design-document.md`)
+- Searches GitHub for design document examples and best practices
+- Analyzes existing design documents from repositories
+- Generates comprehensive review reports with improvement recommendations
+- Creates structured review output in the `/reviews` directory
 
 ### Workspace Status (`workspace/status.md`)
 - Reports repository synchronization status

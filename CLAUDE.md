@@ -94,7 +94,8 @@ workspace-root/
 │       ├── deployment/            # Deployment-focused commands
 │       │   └── check-migrations.md # Migration check command
 │       ├── design/                # Design-focused commands
-│       │   └── create-design-document.md # Design document creation
+│       │   ├── create-design-document.md # Design document creation
+│       │   └── review-design-document.md # Design document review
 │       └── workspace/             # Workspace management commands  
 │           ├── prime.md           # Project setup command
 │           ├── pull.md            # Workspace update command
@@ -109,6 +110,18 @@ workspace-root/
 │   │   ├── claude.md              # Project-specific configuration
 │   │   └── [project files]
 │   └── [other projects]/
+├── reviews/                       # Design document review outputs
+│   └── YYYY-MM-DD-HHMM-design-review-{feature}/
+│       ├── 00-review-request.md   # Original review request
+│       ├── 01-original-design.md  # Copy of design document being reviewed
+│       ├── 02-analysis-findings.md # Structural and technical analysis
+│       ├── 03-alternative-research.md # Industry best practices and alternatives
+│       ├── 04-improvement-analysis.md # Gap analysis and improvements
+│       ├── 05-expert-questions.md # Review questions for stakeholders
+│       ├── 06-expert-answers.md   # Stakeholder responses
+│       ├── 07-recommendations.md  # Prioritized improvement recommendations
+│       ├── 08-review-report.md    # Comprehensive final report
+│       └── metadata.json          # Review tracking and progress
 └── reports/                       # Generated reports and summaries
     └── weekly-report-YYYY-MM-DD.md
 ```
@@ -153,6 +166,19 @@ All commands integrate with the activity logging system:
 - Tracks query patterns and knowledge gaps
 - Enables learning progression analysis
 - **Always creates**: "user-query" task type
+
+### 7. Design Document Creation (`design/create-design-document.md`)
+- Creates comprehensive design documents for new features
+- Integrates with GitHub for issue tracking and collaboration
+- Uses structured templates and requirements analysis
+- **Always creates**: "design-document" task type
+
+### 8. Design Document Review (`design/review-design-document.md`)
+- Comprehensive review of existing design documents with alternative research
+- Generates structured review reports with improvement recommendations
+- Creates expert consultation workflows for stakeholder input
+- Outputs detailed analysis in timestamped `/reviews` directories
+- **Always creates**: "design-review" task type
 
 ## Multi-Agent Coordination
 

@@ -32,10 +32,11 @@ This documentation directory provides comprehensive guides for setting up and us
 ### GitHub CLI Commands
 The following workspace commands require GitHub CLI (`gh`):
 - **Code Review** (`development/review.md`) - Reviews pull requests and manages GitHub interactions
+- **Design Document Creation** (`design/create-design-document.md`) - Creates and manages design documents in GitHub
+- **Design Document Review** (`design/review-design-document.md`) - Comprehensive review of design documents with alternative research and improvements
 - **Workspace Pull** (`workspace/pull.md`) - Pulls latest changes from GitHub repositories
 - **Workspace Prime** (`workspace/prime.md`) - Sets up GitHub repository connections
 - **Migration Check** (`deployment/check-migrations.md`) - Checks GitHub for migration-related changes
-- **Design Document Creation** (`design/create-design-document.md`) - Creates and manages design documents in GitHub
 - **Workspace Status** (`workspace/status.md`) - Displays GitHub repository status information
 
 ### JIRA CLI Commands

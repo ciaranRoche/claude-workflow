@@ -24,7 +24,8 @@ Workspace Commands
 ├── deployment/
 │   └── check-migrations.md → GitHub CLI (gh)
 └── design/
-    └── create-design-document.md → GitHub CLI (gh)
+    ├── create-design-document.md → GitHub CLI (gh)
+    └── review-design-document.md → GitHub CLI (gh), Web Search
 ```
 
 ### CLI Tool Usage Patterns
@@ -187,6 +188,39 @@ gh pr create --title "Implement: Feature" --body "Implementation PR"
 3. **Review Coordination**: Manages design review workflow through GitHub
 4. **Implementation Linking**: Links design documents to implementation pull requests
 5. **Documentation Updates**: Maintains design documentation throughout development
+
+#### Design Document Review (`design/review-design-document.md`)
+
+**GitHub CLI Usage**:
+```bash
+# Design review operations
+gh search repos "architecture design" --owner OWNER
+gh issue list --label "design" --state all
+gh pr list --search "design document" --state all
+gh api repos/OWNER/REPO/contents/path/to/design-doc.md
+```
+
+**Integration Flow**:
+1. **Document Discovery**: Locates target design documents from GitHub repositories or local workspace
+2. **Alternative Research**: Uses web search and GitHub to research industry best practices and alternative approaches
+3. **Expert Consultation**: Creates interactive review questions for stakeholder input
+4. **Review Documentation**: Generates comprehensive review reports in the `/reviews` directory
+5. **Improvement Recommendations**: Provides prioritized improvement roadmap with implementation guidance
+
+**Output Structure**:
+```
+reviews/YYYY-MM-DD-HHMM-design-review-{feature}/
+├── 00-review-request.md        # Original review request
+├── 01-original-design.md       # Copy of design document being reviewed
+├── 02-analysis-findings.md     # Structural and technical analysis
+├── 03-alternative-research.md  # Industry best practices and alternatives
+├── 04-improvement-analysis.md  # Gap analysis and improvements
+├── 05-expert-questions.md      # Review questions for stakeholders
+├── 06-expert-answers.md        # Stakeholder responses
+├── 07-recommendations.md       # Prioritized improvement recommendations
+├── 08-review-report.md         # Comprehensive final report
+└── metadata.json               # Review tracking and progress
+```
 
 ## Configuration Management
 

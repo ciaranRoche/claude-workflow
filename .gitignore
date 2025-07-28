@@ -9,6 +9,7 @@ workspace-activity.json
 /tasks
 /reports
 /notes
+/reviews
 
 # IDE files
 .idea/
