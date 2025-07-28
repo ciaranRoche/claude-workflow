@@ -1,0 +1,16 @@
+{
+  "id": "mtg-score-tracker",
+  "started": "2025-07-28T15:32:00Z",
+  "lastUpdated": "2025-07-28T15:32:00Z",
+  "status": "active",
+  "phase": "discovery",
+  "progress": {
+    "discovery": { "answered": 5, "total": 5 },
+    "detail": { "answered": 5, "total": 5 }
+  },
+  "contextFiles": [],
+  "relatedFeatures": [],
+  "agent_id": "claude-agent-1753725133249",
+  "task_id": "task-2025-07-28-1532-design-document",
+  "feature_description": "Magic The Gathering score tracker full-stack application"
+}

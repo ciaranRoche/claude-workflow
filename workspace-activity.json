@@ -24,6 +24,56 @@
         "current_step": "activity-log-init",
         "remaining_steps": ["activity-log-init", "task-setup", "workspace-setup", "codebase-analysis", "discovery-questions", "context-gathering", "expert-questions", "requirements-spec", "design-document"]
       }
+    },
+    {
+      "id": "task-2025-07-28-1532-design-document",
+      "type": "design-document",
+      "project": "mtg-score-tracker",
+      "title": "Create design document: Magic The Gathering score tracker full-stack application",
+      "status": "completed",
+      "assigned_agent": "claude-agent-1753725133249",
+      "created": "2025-07-28T15:32:00Z",
+      "last_activity": "2025-07-28T15:45:00Z",
+      "completed": "2025-07-28T15:45:00Z",
+      "context": {
+        "feature_slug": "mtg-score-tracker",
+        "arguments": "i want to build a full stack app, the idea of the app is to have a score tracker for magic the gathering, the app should accept users, users should be able to store their deck games, join matches, and we should persist a history of all games and their results, the app should support standard format magic and commander format magic. During matches users should be able to update their score, after matches each logged in user should be able to leave a comment about the game, and this is persisted so users can look back not just on their results but also potential reasons for the results as well as the deck name they used and played against. Ultrathink about what technologies we should use for this, do not base your decision on our previous projects, do research and see what is the best options. The app will be deployed on k3s, and should have easy user management, potentially using google as an auth or something similar, i want it to be as easy as possible for people to use this app",
+        "project_alias": "mtg-score-tracker"
+      },
+      "progress": {
+        "completed_steps": ["bootstrap-init", "workspace-setup", "technology-research", "discovery-questions", "expert-questions", "requirements-spec", "design-document"],
+        "current_step": "completed",
+        "remaining_steps": []
+      },
+      "deliverables": {
+        "workspace_directory": "tasks/2025-07-28-1532-design-document-mtg-score-tracker",
+        "files_created": [
+          "00-initial-request.md",
+          "01-technology-research.md", 
+          "02-discovery-questions.md",
+          "03-discovery-answers.md",
+          "04-expert-questions.md",
+          "05-expert-answers.md",
+          "06-requirements-specification.md",
+          "07-design-document.md",
+          "metadata.json"
+        ],
+        "technology_stack": {
+          "frontend": "React with Next.js 15",
+          "backend": "Node.js with Express/Fastify + Socket.io",
+          "database": "PostgreSQL 16 with Redis 7 caching",
+          "authentication": "Firebase Authentication (Google OAuth)",
+          "deployment": "k3s with Docker containers"
+        },
+        "key_features": [
+          "Real-time score tracking via WebSocket",
+          "Standard and Commander format support",
+          "Private friend group with invite-only access",
+          "Comprehensive game history and analytics",
+          "Private post-match comments for analysis",
+          "Simple deck management and association"
+        ]
+      }
     }
   ],
   "completed_tasks": [
@@ -45,6 +95,56 @@
         "completed_steps": ["bootstrap-init", "activity-log-init", "workspace-config-read", "directory-structure", "project-cloning", "remote-configuration", "branch-checkout", "metadata-update", "verification"],
         "current_step": "completed",
         "remaining_steps": []
+      }
+    },
+    {
+      "id": "task-2025-07-28-1532-design-document",
+      "type": "design-document",
+      "project": "mtg-score-tracker",
+      "title": "Create design document: Magic The Gathering score tracker full-stack application",
+      "status": "completed",
+      "assigned_agent": "claude-agent-1753725133249",
+      "created": "2025-07-28T15:32:00Z",
+      "last_activity": "2025-07-28T15:45:00Z",
+      "completed": "2025-07-28T15:45:00Z",
+      "context": {
+        "feature_slug": "mtg-score-tracker",
+        "arguments": "i want to build a full stack app, the idea of the app is to have a score tracker for magic the gathering, the app should accept users, users should be able to store their deck games, join matches, and we should persist a history of all games and their results, the app should support standard format magic and commander format magic. During matches users should be able to update their score, after matches each logged in user should be able to leave a comment about the game, and this is persisted so users can look back not just on their results but also potential reasons for the results as well as the deck name they used and played against. Ultrathink about what technologies we should use for this, do not base your decision on our previous projects, do research and see what is the best options. The app will be deployed on k3s, and should have easy user management, potentially using google as an auth or something similar, i want it to be as easy as possible for people to use this app",
+        "project_alias": "mtg-score-tracker"
+      },
+      "progress": {
+        "completed_steps": ["bootstrap-init", "workspace-setup", "technology-research", "discovery-questions", "expert-questions", "requirements-spec", "design-document"],
+        "current_step": "completed",
+        "remaining_steps": []
+      },
+      "deliverables": {
+        "workspace_directory": "tasks/2025-07-28-1532-design-document-mtg-score-tracker",
+        "files_created": [
+          "00-initial-request.md",
+          "01-technology-research.md", 
+          "02-discovery-questions.md",
+          "03-discovery-answers.md",
+          "04-expert-questions.md",
+          "05-expert-answers.md",
+          "06-requirements-specification.md",
+          "07-design-document.md",
+          "metadata.json"
+        ],
+        "technology_stack": {
+          "frontend": "React with Next.js 15",
+          "backend": "Node.js with Express/Fastify + Socket.io",
+          "database": "PostgreSQL 16 with Redis 7 caching",
+          "authentication": "Firebase Authentication (Google OAuth)",
+          "deployment": "k3s with Docker containers"
+        },
+        "key_features": [
+          "Real-time score tracking via WebSocket",
+          "Standard and Commander format support",
+          "Private friend group with invite-only access",
+          "Comprehensive game history and analytics",
+          "Private post-match comments for analysis",
+          "Simple deck management and association"
+        ]
       }
     }
   ],
@@ -78,19 +178,55 @@
         "metadata_updated": true,
         "verification_passed": true
       }
+    },
+    {
+      "id": "activity-1753725133249",
+      "timestamp": "2025-07-28T15:32:13Z",
+      "agent_id": "claude-agent-1753725133249",
+      "task_id": "task-2025-07-28-1532-design-document",
+      "type": "step-completion",
+      "project": "mtg-score-tracker",
+      "summary": "Initialized MTG score tracker design document task with activity logging",
+      "details": {
+        "step": "bootstrap-init",
+        "bootstrap_loaded": true,
+        "config_loaded": true,
+        "agent_id": "claude-agent-1753725133249",
+        "feature_slug": "mtg-score-tracker",
+        "project_alias": "mtg-score-tracker"
+      }
+    },
+    {
+      "id": "activity-1753725133250",
+      "timestamp": "2025-07-28T15:45:00Z",
+      "agent_id": "claude-agent-1753725133249",
+      "task_id": "task-2025-07-28-1532-design-document",
+      "type": "task-completion",
+      "project": "mtg-score-tracker",
+      "summary": "Successfully completed MTG score tracker design document with comprehensive requirements and architecture",
+      "details": {
+        "deliverables_created": 9,
+        "requirements_gathered": true,
+        "technology_stack_researched": true,
+        "expert_questions_answered": 5,
+        "discovery_questions_answered": 5,
+        "final_design_document": "07-design-document.md",
+        "workspace_directory": "tasks/2025-07-28-1532-design-document-mtg-score-tracker"
+      }
     }
   ],
   "metrics": {
-    "total_tasks": 2,
+    "total_tasks": 3,
     "active_tasks": 1,
-    "completed_tasks": 1,
+    "completed_tasks": 2,
     "tasks_by_type": {
       "project-setup": 1,
-      "design-document": 1
+      "design-document": 2
     },
     "tasks_by_project": {
       "workspace": 1,
-      "home-lab": 1
+      "home-lab": 1,
+      "mtg-score-tracker": 1
     }
   }
 }
