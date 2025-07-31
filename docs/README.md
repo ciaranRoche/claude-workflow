@@ -27,6 +27,9 @@ This documentation directory provides comprehensive guides for setting up and us
 ### Integration
 - **[Workspace Integration](/home/croche/Work/projects/docs/integration/workspace-integration.md)** - How CLI tools integrate with Claude Code commands
 
+### Automation
+- **[Workspace Priming Scripts](/home/croche/Work/projects/docs/automation/workspace-priming-scripts.md)** - Comprehensive documentation for automation scripts that handle repository management during workspace setup
+
 ## Commands That Require CLI Tools
 
 ### GitHub CLI Commands

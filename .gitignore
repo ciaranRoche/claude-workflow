@@ -13,3 +13,6 @@ workspace-activity.json
 
 # IDE files
 .idea/
+
+# Automation scripts
+scripts/

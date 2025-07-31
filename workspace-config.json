@@ -1,164 +1,232 @@
 {
-    "workspace": {
-      "name": "My Development Workspace",
-      "version": "1.0.0",
-      "created": "2025-07-23"
+  "workspace": {
+    "name": "My Development Workspace",
+    "version": "1.0.0",
+    "created": "2025-07-23"
+  },
+  "user": {
+    "github_username": "ciaranRoche",
+    "gitlab_username": "croche"
+  },
+  "settings": {
+    "default_clone_path": "./projects",
+    "default_branch": "main",
+    "auto_pull_updates": true,
+    "preferred_git_protocol": "ssh"
+  },
+  "projects": [
+    {
+      "alias": "cs",
+      "name": "uhc-clusters-service",
+      "platform": "gitlab",
+      "url": "https://gitlab.cee.redhat.com/service/uhc-clusters-service.git",
+      "ssh_url": "git@gitlab.cee.redhat.com:service/uhc-clusters-service.git",
+      "description": "This project provides a service that simplifies the creation and management of OpenShift clusters.",
+      "local_path": "./projects/uhc-clusters-service",
+      "branch": "master",
+      "tags": [
+        "backend",
+        "golang",
+        "production",
+        "postgres",
+        "REST",
+        "OCM"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
     },
-    "user": {
-      "github_username": "ciaranRoche",
-      "gitlab_username": "croche"
+    {
+      "alias": "ocm-cli",
+      "name": "ocm-cli",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-cli.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-cli.git",
+      "description": "This project contains the ocm command line tool that simplifies the use of the OCM API available at https://api.openshift.com.",
+      "local_path": "./projects/ocm-cli",
+      "branch": "main",
+      "tags": [
+        "CLI",
+        "golang",
+        "production",
+        "OCM"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
     },
-    "settings": {
-      "default_clone_path": "./projects",
-      "default_branch": "main",
-      "auto_pull_updates": true,
-      "preferred_git_protocol": "ssh"
+    {
+      "alias": "ats",
+      "name": "access-transparency-service",
+      "platform": "gitlab",
+      "url": "https://gitlab.cee.redhat.com/ocm/access-transparency-service.git",
+      "ssh_url": "git@gitlab.cee.redhat.com:ocm/access-transparency-service.git",
+      "description": "Access Transparency Service manages access requests and decisions for resources within the scope of OCM",
+      "local_path": "./projects/access-transparency-service",
+      "branch": "main",
+      "tags": [
+        "backend",
+        "golang",
+        "production",
+        "postgres",
+        "REST",
+        "OCM"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
     },
-    "projects": [
-      {
-        "alias": "cs",
-        "name": "uhc-clusters-service",
-        "platform": "gitlab",
-        "url": "https://gitlab.cee.redhat.com/service/uhc-clusters-service.git",
-        "ssh_url": "git@gitlab.cee.redhat.com:service/uhc-clusters-service.git",
-        "description": "This project provides a service that simplifies the creation and management of OpenShift clusters.",
-        "local_path": "./projects/uhc-clusters-service",
-        "branch": "master",
-        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-cli",
-        "name": "ocm-cli",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-cli.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-cli.git",
-        "description": "This project contains the ocm command line tool that simplifies the use of the OCM API available at https://api.openshift.com.",
-        "local_path": "./projects/ocm-cli",
-        "branch": "main",
-        "tags": ["CLI", "golang", "production", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ats",
-        "name": "access-transparency-service",
-        "platform": "gitlab",
-        "url": "https://gitlab.cee.redhat.com/ocm/access-transparency-service.git",
-        "ssh_url": "git@gitlab.cee.redhat.com:ocm/access-transparency-service.git",
-        "description": "Access Transparency Service manages access requests and decisions for resources within the scope of OCM",
-        "local_path": "./projects/access-transparency-service",
-        "branch": "main",
-        "tags": ["backend", "golang", "production", "postgres", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-api-model",
-        "name": "ocm-api-model",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-api-model.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-api-model.git",
-        "description": "This project contains the specification of the OpenShift cluster manager API, also known as the model.",
-        "local_path": "./projects/ocm-api-model",
-        "branch": "main",
-        "tags": ["model", "REST", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-api-metamodel",
-        "name": "ocm-api-metamodel",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-api-metamodel.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-api-metamodel.git",
-        "description": "This project contains the code for the ocm-metamodel-tool command line utility, which is used to generate code from the API model.",
-        "local_path": "./projects/ocm-api-metamodel",
-        "branch": "main",
-        "tags": ["model", "OCM"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-sdk-go",
-        "name": "ocm-sdk-go",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-sdk-go.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-sdk-go.git",
-        "description": "This project contains a Go library that simplifies the use of the OCM API, available in api.openshift.com.",
-        "local_path": "./projects/ocm-sdk-go",
-        "branch": "main",
-        "tags": ["SDK", "OCM", "Golang"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "trex",
-        "name": "rh-trex",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/rh-trex.git",
-        "ssh_url": "git@github.com:openshift-online/rh-trex.git",
-        "description": "TRex is Red Hat's Trusted Rest EXample - a production-ready microservice template for rapid API development.",
-        "local_path": "./projects/rh-trex",
-        "branch": "main",
-        "tags": ["SDK", "OCM", "Golang", "REST", "Postgres", "Backend"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-support-cli",
-        "name": "ocm-support-cli",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-support-cli.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-support-cli.git",
-        "description": "ocm-support-cli is a tool that extends the ocm-cli by adding commands that are useful for engineers that deal support requests.",
-        "local_path": "./projects/ocm-support-cli",
-        "branch": "main",
-        "tags": ["CLI", "OCM", "Golang"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-common",
-        "name": "ocm-common",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-common.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-common.git",
-        "description": "This project contains utility functions intended for sharing across OCM clients and services. Its objective is to streamline OCM codebases by eliminating duplicate code found within them.",
-        "local_path": "./projects/ocm-common-github",
-        "branch": "main",
-        "tags": ["OCM", "Golang"],
-        "priority": "high",
-        "active": true,
-        "last_synced": "2025-07-24T11:41:34Z"
-      },
-      {
-        "alias": "ocm-service-common",
-        "name": "ocm-service-common",
-        "platform": "github",
-        "url": "https://github.com/openshift-online/ocm-service-common.git",
-        "ssh_url": "git@github.com:openshift-online/ocm-service-common.git",
-        "description": "Common service utilities and shared functionality for OCM services and microservices development.",
-        "local_path": "./projects/ocm-service-common",
-        "branch": "master",
-        "tags": ["OCM", "Golang", "Backend", "Services"],
-        "priority": "medium",
-        "active": true,
-        "last_synced": "2025-07-24T11:43:00Z"
-      }
-    ],
-    "metadata": {
-      "total_projects": 10,
-      "active_projects": 10,
-      "last_updated": "2025-07-24T11:43:00Z"
+    {
+      "alias": "ocm-api-model",
+      "name": "ocm-api-model",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-api-model.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-api-model.git",
+      "description": "This project contains the specification of the OpenShift cluster manager API, also known as the model.",
+      "local_path": "./projects/ocm-api-model",
+      "branch": "main",
+      "tags": [
+        "model",
+        "REST",
+        "OCM"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "ocm-api-metamodel",
+      "name": "ocm-api-metamodel",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-api-metamodel.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-api-metamodel.git",
+      "description": "This project contains the code for the ocm-metamodel-tool command line utility, which is used to generate code from the API model.",
+      "local_path": "./projects/ocm-api-metamodel",
+      "branch": "main",
+      "tags": [
+        "model",
+        "OCM"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "ocm-sdk-go",
+      "name": "ocm-sdk-go",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-sdk-go.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-sdk-go.git",
+      "description": "This project contains a Go library that simplifies the use of the OCM API, available in api.openshift.com.",
+      "local_path": "./projects/ocm-sdk-go",
+      "branch": "main",
+      "tags": [
+        "SDK",
+        "OCM",
+        "Golang"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "trex",
+      "name": "rh-trex",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/rh-trex.git",
+      "ssh_url": "git@github.com:openshift-online/rh-trex.git",
+      "description": "TRex is Red Hat's Trusted Rest EXample - a production-ready microservice template for rapid API development.",
+      "local_path": "./projects/rh-trex",
+      "branch": "main",
+      "tags": [
+        "SDK",
+        "OCM",
+        "Golang",
+        "REST",
+        "Postgres",
+        "Backend"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "ocm-support-cli",
+      "name": "ocm-support-cli",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-support-cli.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-support-cli.git",
+      "description": "ocm-support-cli is a tool that extends the ocm-cli by adding commands that are useful for engineers that deal support requests.",
+      "local_path": "./projects/ocm-support-cli",
+      "branch": "main",
+      "tags": [
+        "CLI",
+        "OCM",
+        "Golang"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "ocm-common",
+      "name": "ocm-common",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-common.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-common.git",
+      "description": "This project contains utility functions intended for sharing across OCM clients and services. Its objective is to streamline OCM codebases by eliminating duplicate code found within them.",
+      "local_path": "./projects/ocm-common-github",
+      "branch": "main",
+      "tags": [
+        "OCM",
+        "Golang"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "ocm-service-common",
+      "name": "ocm-service-common",
+      "platform": "github",
+      "url": "https://github.com/openshift-online/ocm-service-common.git",
+      "ssh_url": "git@github.com:openshift-online/ocm-service-common.git",
+      "description": "Common service utilities and shared functionality for OCM services and microservices development.",
+      "local_path": "./projects/ocm-service-common",
+      "branch": "master",
+      "tags": [
+        "OCM",
+        "Golang",
+        "Backend",
+        "Services"
+      ],
+      "priority": "medium",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
+    },
+    {
+      "alias": "app-interface",
+      "name": "app-interface",
+      "platform": "gitlab",
+      "url": "https://gitlab.cee.redhat.com/service/app-interface.git",
+      "ssh_url": "git@gitlab.cee.redhat.com:service/app-interface.git",
+      "description": "This repository serves as a central coordination point for hosted services operated by the Application SRE team. Once the appropriate parties accept changes to this repository, many or all portions of the contract defined herein are automated.",
+      "local_path": "./projects/app-interface",
+      "branch": "master",
+      "tags": [
+        "SaaS",
+        "YAML",
+        "YML",
+        "GitOps"
+      ],
+      "priority": "high",
+      "active": true,
+      "last_synced": "2025-07-31T11:37:44Z"
     }
+  ],
+  "metadata": {
+    "total_projects": 11,
+    "active_projects": 11,
+    "last_updated": "2025-07-31T11:37:44Z"
   }
+}
