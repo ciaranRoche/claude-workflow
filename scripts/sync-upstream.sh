@@ -150,13 +150,42 @@ Private project data remains in fork only.
 
 🤖 Generated with upstream sync script"
 
-# Push to upstream
-echo -e "${YELLOW}⬆️ Pushing to upstream repository...${NC}"
-echo "This will push to: $(git remote get-url upstream)"
+# Push branch to upstream and create PR
+echo -e "${YELLOW}⬆️ Creating pull request to upstream repository...${NC}"
+echo "This will push branch to: $(git remote get-url upstream)"
 read -p "Continue? (Y/n): " confirm
 if [[ $confirm != [nN] ]]; then
-    git push upstream $PUBLIC_BRANCH:main --force-with-lease
-    echo -e "${GREEN}✅ Successfully synced to upstream!${NC}"
+    # Push the public branch to upstream (not main)
+    git push upstream $PUBLIC_BRANCH --no-verify
+    
+    # Create pull request using GitHub CLI
+    if command -v gh >/dev/null 2>&1; then
+        echo -e "${YELLOW}📝 Creating pull request...${NC}"
+        PR_TITLE="sync: Update public workflow tools from fork"
+        PR_BODY="Automated sync of Claude workflow tools and documentation from personal fork.
+
+## Changes Included
+- Updated .claude/ workflow configurations
+- Documentation improvements  
+- Script enhancements
+- Template updates
+
+## Security Review
+✅ Only public files included (no private project data)
+✅ Personal configuration sanitized to template format
+✅ Private content remains secure in fork
+
+This PR was created automatically by the sync-upstream script to safely share workflow improvements while maintaining security separation between public tools and private projects."
+        
+        gh pr create --title "$PR_TITLE" --body "$PR_BODY" --repo upstream --head "$PUBLIC_BRANCH" --base main
+        echo -e "${GREEN}✅ Pull request created successfully!${NC}"
+    else
+        echo -e "${YELLOW}⚠️ GitHub CLI (gh) not found${NC}"
+        echo -e "${BLUE}📋 Manual PR creation required:${NC}"
+        echo "1. Go to: $(git remote get-url upstream | sed 's/\.git$//')/compare/main...$PUBLIC_BRANCH"
+        echo "2. Create PR with title: sync: Update public workflow tools from fork"
+        echo "3. Review changes to ensure no private data is included"
+    fi
 else
     echo -e "${YELLOW}❌ Sync cancelled by user${NC}"
 fi
@@ -168,6 +197,7 @@ git branch -D $PUBLIC_BRANCH 2>/dev/null || true
 echo "=================================================="
 echo -e "${GREEN}🎉 Upstream sync completed!${NC}"
 echo -e "${BLUE}📋 Summary:${NC}"
-echo "• Public files synced to upstream claude-workflow"
+echo "• Public files prepared and pushed to upstream branch"
+echo "• Pull request created for review and merge"
 echo "• Private content remains secure in your fork"
-echo "• Ready for next development cycle"
+echo "• Awaiting upstream maintainer review"
