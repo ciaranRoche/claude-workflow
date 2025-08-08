@@ -559,6 +559,6 @@ cp ~/.config/gh/hosts.yml ~/.config/gh/hosts.yml.backup
 ---
 
 **Related Documentation**:
-- **[GitHub CLI Setup Guide](/home/croche/Work/projects/docs/setup/github-cli-setup.md)**
-- **[Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)**
-- **[JIRA CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/jira-cli-troubleshooting.md)**
+- **[GitHub CLI Setup Guide](../setup/github-cli-setup.md)**
+- **[Workspace Integration Guide](../integration/workspace-integration.md)**
+- **[JIRA CLI Troubleshooting](jira-cli-troubleshooting.md)**

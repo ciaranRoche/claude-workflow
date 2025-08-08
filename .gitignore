@@ -1,11 +1,28 @@
 # Claude Code configuration
 .claude/settings.local.json
 
-# Project directories
+# Project directories (private content)
 /projects
 
-# Workspace tracking and output
+# Personal workspace configuration (keep template only in public)
+workspace-config.json
+
+# Workspace tracking and output (private data)
 workspace-activity.json
+/tasks
+/reviews  
+/reports
 
 # IDE files
 .idea/
+.vscode/settings.json
+
+# Personal development files
+*.personal
+.env*
+**/secrets/
+**/.env*
+
+# Temporary files
+tmp/
+.tmp/

@@ -724,6 +724,6 @@ sed 's/login: .*/login: "REDACTED"/' ~/.config/jira-cli/config.yml > config-temp
 ---
 
 **Related Documentation**:
-- **[JIRA CLI Setup Guide](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)**
-- **[Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)**
-- **[GitHub CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/github-cli-troubleshooting.md)**
+- **[JIRA CLI Setup Guide](../setup/jira-cli-setup.md)**
+- **[Workspace Integration Guide](../integration/workspace-integration.md)**
+- **[GitHub CLI Troubleshooting](github-cli-troubleshooting.md)**

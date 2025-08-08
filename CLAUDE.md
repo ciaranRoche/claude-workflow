@@ -74,6 +74,81 @@ This is not optional - it's required for:
 4. **Completion Validation**: Final verification that all requirements are met
 5. **Error Recovery**: If any step fails, full rollback and error reporting
 
+## CRITICAL: Fork-Based Git Operations
+
+**MANDATORY USE OF FORK-BASED SCRIPTS FOR ALL GIT OPERATIONS**
+
+This workspace uses a **secure fork-based model** that separates private development from public contributions. ALL git operations MUST use the provided scripts to prevent security violations.
+
+### MANDATORY SCRIPT USAGE - NO EXCEPTIONS
+
+**NEVER use raw git commands for commits or pushes. ALWAYS use these scripts:**
+
+1. **Daily Development (Private Fork)**:
+   ```bash
+   # WRONG - Direct git commands
+   git add .; git commit -m "message"; git push origin main
+   
+   # CORRECT - Let scripts handle the workflow
+   # Just work normally, scripts will handle commits when needed
+   ```
+
+2. **Contributing Public Improvements**:
+   ```bash
+   # MANDATORY - Use sync script for upstream contributions
+   ./scripts/sync-upstream.sh
+   # This script ensures ONLY public files go to upstream
+   ```
+
+3. **Getting Upstream Updates**:
+   ```bash
+   # MANDATORY - Use update script for pulling upstream changes
+   ./scripts/update-from-upstream.sh
+   # This script safely merges upstream into your fork
+   ```
+
+### SECURITY ENFORCEMENT RULES
+
+**VIOLATION OF THESE RULES WILL TERMINATE OPERATIONS**
+
+1. **Script-First Policy**: 
+   - Before ANY git operation, check if a script exists
+   - Use `./scripts/sync-upstream.sh` for upstream contributions
+   - Use `./scripts/update-from-upstream.sh` for upstream updates
+   - NO direct `git push upstream` commands allowed
+
+2. **Private Data Protection**:
+   - `workspace-config.json` NEVER goes to upstream (template only)
+   - `projects/` directory NEVER goes to upstream
+   - `tasks/`, `reviews/`, `reports/` NEVER go to upstream
+   - Scripts automatically filter private content
+
+3. **Pre-Operation Validation**:
+   - Check git status before any script execution
+   - Verify remote configuration is correct
+   - Confirm script exists and is executable
+   - Validate no security violations will occur
+
+### SCRIPT VERIFICATION CHECKLIST
+
+**Before any git operation, VERIFY:**
+- [ ] **CRITICAL**: Script exists for the operation (`ls scripts/`)
+- [ ] **CRITICAL**: Script is executable (`chmod +x scripts/*.sh`)
+- [ ] **CRITICAL**: Current working directory is workspace root
+- [ ] **CRITICAL**: Git remotes are correctly configured
+- [ ] **CRITICAL**: No sensitive data in staging area for upstream operations
+
+### GIT OPERATION VIOLATIONS
+
+**These actions are PROHIBITED and will terminate operations:**
+- Direct `git push upstream main`
+- Direct `git commit` without considering security model
+- Manual `git remote` modifications
+- Bypassing script-based workflow
+- Committing sensitive data to public branches
+
+**Recovery from violations requires manual intervention and security audit.**
+
 ## Project Structure
 
 The workspace follows this directory structure:

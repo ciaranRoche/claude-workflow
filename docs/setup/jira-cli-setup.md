@@ -478,9 +478,9 @@ echo "JIRA data fetched for $ISSUE_KEY"
 - **[JIRA CLI GitHub Repository](https://github.com/ankitpokhrel/jira-cli)**
 - **[Atlassian REST API Documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v3/)**
 - **[JIRA Query Language (JQL) Guide](https://www.atlassian.com/software/jira/guides/expand-jira/jql)**
-- **[Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)**
-- **[JIRA CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/jira-cli-troubleshooting.md)**
+- **[Workspace Integration Guide](../integration/workspace-integration.md)**
+- **[JIRA CLI Troubleshooting](../troubleshooting/jira-cli-troubleshooting.md)**
 
 ---
 
-**Next Steps**: After completing JIRA CLI setup, review the **[Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)** to understand how CLI tools work with Claude Code commands.
+**Next Steps**: After completing JIRA CLI setup, review the **[Workspace Integration Guide](../integration/workspace-integration.md)** to understand how CLI tools work with Claude Code commands.

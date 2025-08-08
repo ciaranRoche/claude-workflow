@@ -224,8 +224,8 @@ Choose agents based on your specific needs, and don't hesitate to use the main C
 ---
 
 **Related Documentation**:
-- [Claude Code Workspace Documentation](/home/croche/Work/projects/docs/README.md)
-- [Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)
-- [CLAUDE.md Workspace Configuration](/home/croche/Work/projects/CLAUDE.md)
+- [Claude Code Workspace Documentation](README.md)
+- [Workspace Integration Guide](integration/workspace-integration.md)
+- [CLAUDE.md Workspace Configuration](../CLAUDE.md)
 
-**Agent Files Location**: `/home/croche/Work/projects/.claude/agents/`
+**Agent Files Location**: `.claude/agents/`

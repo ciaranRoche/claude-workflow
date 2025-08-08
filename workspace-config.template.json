@@ -1,0 +1,44 @@
+{
+  "workspace": {
+    "name": "My Development Workspace",
+    "version": "1.0.0",
+    "created": "YYYY-MM-DD"
+  },
+  "user": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "github_username": "your-github-username",
+    "gitlab_username": "your-gitlab-username",
+    "jira_domain": "your-domain.atlassian.net"
+  },
+  "settings": {
+    "default_clone_path": "./projects",
+    "default_branch": "main",
+    "auto_pull_updates": true,
+    "preferred_git_protocol": "ssh",
+    "task_retention_days": 30,
+    "auto_sync": false
+  },
+  "projects": [
+    {
+      "alias": "example-project",
+      "name": "Example Project",
+      "platform": "github",
+      "url": "https://github.com/your-username/example-project.git",
+      "ssh_url": "git@github.com:your-username/example-project.git",
+      "description": "Description of your project",
+      "local_path": "./projects/example-project",
+      "branch": "main",
+      "tags": ["tag1", "tag2", "tag3"],
+      "priority": "medium",
+      "active": true,
+      "last_synced": "YYYY-MM-DDTHH:MM:SSZ",
+      "jira_project_key": "EX"
+    }
+  ],
+  "metadata": {
+    "total_projects": 1,
+    "active_projects": 1,
+    "last_updated": "YYYY-MM-DDTHH:MM:SSZ"
+  }
+}

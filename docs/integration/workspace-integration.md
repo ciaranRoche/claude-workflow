@@ -1,10 +1,17 @@
-# Workspace Integration Guide
+# Fork-Based Workspace Integration Guide
 
-Comprehensive guide to how CLI tools integrate with Claude Code workspace commands and workflows.
+Comprehensive guide to CLI tool integration within the **fork-based Claude Code workspace** architecture.
 
 ## Overview
 
-The Claude Code workspace uses external CLI tools to interact with services like GitHub and JIRA. This integration enables automated workflows for code review, issue management, repository synchronization, and development task management.
+The fork-based Claude Code workspace uses external CLI tools to enable:
+
+- **Private Development**: Personal project management and task tracking
+- **Public Contributions**: Secure synchronization of workflow improvements
+- **External Integrations**: GitHub and JIRA API interactions
+- **Multi-Agent Coordination**: Activity logging and task management across agents
+
+This integration model maintains security by separating private project data from public workflow tools.
 
 ## Integration Architecture
 
@@ -222,39 +229,63 @@ reviews/YYYY-MM-DD-HHMM-design-review-{feature}/
 └── metadata.json               # Review tracking and progress
 ```
 
-## Configuration Management
+## Fork-Based Configuration Management
+
+### Remote Configuration
+
+The fork-based model uses dual remotes for security:
+
+```bash
+# Your private fork (origin) - all your private data
+origin    git@github.com:your-username/your-fork.git
+
+# Public upstream (upstream) - public workflow tools only
+upstream  git@github.com:ciaranRoche/claude-workflow.git
+```
 
 ### Workspace Configuration (`workspace-config.json`)
 
-CLI tools integrate with workspace configuration for:
+**Private configuration** (stays in your fork):
 
 ```json
 {
-  "projects": {
-    "project-alias": {
-      "github": {
-        "owner": "organization",
-        "repository": "repo-name",
-        "default_branch": "main"
-      },
-      "jira": {
-        "project_key": "PROJ",
-        "server_url": "https://company.atlassian.net"
-      }
+  "user": {
+    "name": "Your Name",
+    "github_username": "your-username",
+    "jira_domain": "your-company.atlassian.net"
+  },
+  "projects": [
+    {
+      "alias": "home-lab",
+      "name": "Home Lab Infrastructure", 
+      "platform": "github",
+      "ssh_url": "git@github.com:you/home-lab.git",
+      "local_path": "./projects/home-lab",
+      "tags": ["infrastructure", "k8s"],
+      "jira_project_key": "HL"
     }
-  }
+  ]
 }
 ```
 
-**GitHub CLI Configuration**:
-- Repository cloning uses `github.owner` and `github.repository`
-- Default branch operations use `github.default_branch`
-- Organization-specific authentication uses `github.owner`
+**Public template** (shared with community):
 
-**JIRA CLI Configuration**:
-- Issue operations use `jira.project_key`
-- Server connections use `jira.server_url`
-- Project-specific queries filter by project key
+```json
+{
+  "user": {
+    "name": "Your Name",
+    "github_username": "your-github-username"
+  },
+  "projects": [
+    {
+      "alias": "example-project",
+      "name": "Example Project",
+      "repository": "git@github.com:you/example.git",
+      "local_path": "./projects/example"
+    }
+  ]
+}
+```
 
 ### Activity Logging Integration
 
@@ -530,14 +561,48 @@ export WORKSPACE_DEBUG=1
 # Run workspace command with debug information
 ```
 
+## Fork-Based Workflow Integration
+
+### Contribution Workflow
+
+CLI tools support the secure contribution model:
+
+```bash
+# Daily development (private fork)
+git add .; git commit -m "feat: my changes"; git push origin main
+
+# Contributing workflow improvements (public upstream)
+./scripts/sync-upstream.sh  # Uses gh CLI to push public content only
+
+# Getting upstream updates (merge improvements into fork) 
+./scripts/update-from-upstream.sh  # Uses gh CLI to fetch and merge
+```
+
+### Security Integration
+
+**Private Data Protection**:
+```bash
+# Scripts use gh CLI to filter content
+gh repo clone ciaranRoche/claude-workflow temp-upstream
+# Extract only public paths: .claude/, docs/, scripts/
+# Create sanitized workspace-config.template.json
+gh repo push upstream main  # Push filtered content only
+```
+
+**Authentication Requirements**:
+- Access to your private fork (origin)
+- Read access to upstream claude-workflow
+- Write access to upstream (for contributors)
+
 ## Further Reading
 
-- **[GitHub CLI Setup Guide](/home/croche/Work/projects/docs/setup/github-cli-setup.md)**
-- **[JIRA CLI Setup Guide](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)**
-- **[GitHub CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/github-cli-troubleshooting.md)**
-- **[JIRA CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/jira-cli-troubleshooting.md)**
-- **[Prerequisites Guide](/home/croche/Work/projects/docs/setup/prerequisites.md)**
+- **[GitHub CLI Setup Guide](../setup/github-cli-setup.md)**
+- **[JIRA CLI Setup Guide](../setup/jira-cli-setup.md)**  
+- **[GitHub CLI Troubleshooting](../troubleshooting/github-cli-troubleshooting.md)**
+- **[JIRA CLI Troubleshooting](../troubleshooting/jira-cli-troubleshooting.md)**
+- **[Prerequisites Guide](../setup/prerequisites.md)**
+- **[Contributing Guide](../../CONTRIBUTING.md)** - Fork-based contribution workflow
 
 ---
 
-**Note**: This integration guide is maintained to reflect the current state of workspace commands. When adding new commands that require CLI tools, update this documentation to include the new integration patterns and requirements.
+**Note**: This integration guide reflects the fork-based architecture that separates private development from public contributions. All CLI integrations maintain this security model.

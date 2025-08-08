@@ -1,17 +1,22 @@
-# CLI Prerequisites for Claude Code Workspace
+# CLI Prerequisites for Fork-Based Claude Code Workspace
 
-This document outlines all Command Line Interface (CLI) tools required for the Claude Code workspace commands to function properly.
+This document outlines all CLI tools required for the **fork-based Claude Code workspace** to function properly across both private development and public contribution workflows.
 
 ## Overview
 
-The Claude Code workspace uses several CLI tools to interact with external services and perform development operations. These tools must be installed and properly configured before using workspace commands.
+The fork-based Claude Code workspace uses CLI tools for:
+- **Private Development**: Managing your personal projects and tasks
+- **Public Contributions**: Syncing workflow improvements to upstream
+- **External Integrations**: GitHub and JIRA API interactions
+
+These tools must be installed and configured before using workspace commands.
 
 ## Required CLI Tools
 
 ### GitHub CLI (`gh`)
 **Purpose**: Interacts with GitHub repositories, pull requests, and issues
 **Used by**: 6 workspace commands
-**Installation Guide**: [GitHub CLI Setup](/home/croche/Work/projects/docs/setup/github-cli-setup.md)
+**Installation Guide**: [GitHub CLI Setup](github-cli-setup.md)
 
 **Commands that require GitHub CLI**:
 - `development/review.md` - Code review operations
@@ -24,7 +29,7 @@ The Claude Code workspace uses several CLI tools to interact with external servi
 ### JIRA CLI (`jira`)
 **Purpose**: Fetches and manages JIRA issues and project data
 **Used by**: 1 workspace command
-**Installation Guide**: [JIRA CLI Setup](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)
+**Installation Guide**: [JIRA CLI Setup](jira-cli-setup.md)
 
 **Commands that require JIRA CLI**:
 - `development/implement-jira.md` - JIRA issue analysis and implementation
@@ -57,13 +62,15 @@ Both CLI tools support:
 
 ## Installation Order
 
-Recommended installation sequence:
+Recommended installation sequence for fork-based setup:
 
-1. **Start with GitHub CLI** - Most commands depend on it
-2. **Configure GitHub authentication** - Test basic functionality
-3. **Install JIRA CLI** - Only if you plan to use JIRA integration
-4. **Configure JIRA authentication** - Test issue access
-5. **Verify both tools** - Run test commands
+1. **Fork claude-workflow** - Create your private fork first
+2. **Install GitHub CLI** - Required for fork initialization and sync
+3. **Configure GitHub authentication** - Test access to both fork and upstream
+4. **Run fork initialization** - `./scripts/init-fork.sh` sets up remotes
+5. **Install JIRA CLI** (optional) - Only if using JIRA integration  
+6. **Configure JIRA authentication** - Test issue access
+7. **Verify setup** - Test both CLI tools and fork sync
 
 ## Verification Commands
 
@@ -77,8 +84,11 @@ gh --version
 # Check authentication
 gh auth status
 
-# Test repository access
+# Test fork access
 gh repo list --limit 5
+
+# Test upstream access (after fork setup)
+gh repo view ciaranRoche/claude-workflow
 ```
 
 ### JIRA CLI Verification
@@ -102,19 +112,35 @@ jira issue list --limit 5
 - **Authentication format**: Ensure correct token/credential format
 - **Project permissions**: Verify access to required JIRA projects
 
+## Fork-Specific Verification
+
+After setting up CLI tools, test the fork-based workflow:
+
+```bash
+# Test fork initialization script
+./scripts/init-fork.sh
+
+# Test upstream sync capability
+./scripts/sync-upstream.sh --dry-run
+
+# Test upstream update capability  
+./scripts/update-from-upstream.sh --dry-run
+```
+
 ## Next Steps
 
-Once you understand the requirements:
+Once you have the CLI tools installed:
 
-1. **[Install GitHub CLI](/home/croche/Work/projects/docs/setup/github-cli-setup.md)** - Comprehensive setup guide
-2. **[Install JIRA CLI](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)** - Complete configuration guide
-3. **[Review Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)** - Understand workspace usage
+1. **[Install GitHub CLI](github-cli-setup.md)** - Complete setup guide
+2. **[Install JIRA CLI](jira-cli-setup.md)** - Optional JIRA integration
+3. **[Review Integration Guide](../integration/workspace-integration.md)** - Understand workspace usage
+4. **[Contributing Guide](../../CONTRIBUTING.md)** - Fork-based contribution workflow
 
 ## Troubleshooting Resources
 
 If you encounter issues:
-- **[GitHub CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/github-cli-troubleshooting.md)**
-- **[JIRA CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/jira-cli-troubleshooting.md)**
+- **[GitHub CLI Troubleshooting](../troubleshooting/github-cli-troubleshooting.md)**
+- **[JIRA CLI Troubleshooting](../troubleshooting/jira-cli-troubleshooting.md)**
 
 ---
 

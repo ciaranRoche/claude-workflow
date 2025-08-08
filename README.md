@@ -1,161 +1,200 @@
 # Claude Code Multi-Project Workspace
 
-[![Work in Progress](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow.svg)](https://github.com/your-repo/issues)
-[![Version](https://img.shields.io/badge/Version-1.0.0--draft-orange.svg)](#)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)](#)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Optimized-blue.svg)](https://claude.ai/code)
+[![Fork-Based](https://img.shields.io/badge/Workflow-Fork--Based-orange.svg)](#)
 
-> ⚠️ **Work in Progress**: This workspace configuration is currently in development. Some features may be incomplete or subject to change. See the [Contributing](#-contributing) section for how to help improve this setup.
+A comprehensive workspace for Claude Code development workflows with **secure fork-based contribution model**. Provides coordinated multi-project management, activity tracking, and automated task coordination while keeping your private projects separate from public workflow tools.
 
-This repository serves as a centralized workspace for Claude Code development workflows, providing coordinated multi-project management, activity tracking, and automated task coordination.
+## 🎯 **Fork-Based Architecture**
 
-## 🏗️ Workspace Structure
+This repository uses a **dual-remote model** that separates:
+- **Public workflow tools** (this repository) - Shareable with the community
+- **Private project data** (your fork) - Keeps your personal projects secure
 
+## 🏗️ Repository Structure
+
+### **Public Content** (claude-workflow repository)
 ```
-workspace-root/
-├── workspace-config.json          # Project and user configuration
-├── workspace-activity.json        # Activity log and task tracking
-├── claude.md                      # Workspace configuration for Claude Code
-├── .claude/
-│   ├── bootstrap.md               # Bootstrap instructions for Claude Code
-│   ├── config.md                  # Global configuration and protocols
-│   ├── settings.json              # Claude Code settings and hooks configuration
-│   ├── context/                   # Additional context files
-│   └── commands/                  # Command workflow definitions
-│       ├── development/           # Development-focused commands
-│       │   ├── review.md          # Code review command
-│       │   └── implement-jira.md  # JIRA implementation command
-│       ├── deployment/            # Deployment-focused commands
-│       │   └── check-migrations.md # Migration check command
-│       ├── design/                # Design-focused commands
-│       │   └── create-design-document.md # Design document creation
-│       └── workspace/             # Workspace management commands
-│           ├── prime.md           # Project setup command
-│           ├── pull.md            # Workspace update command
-│           ├── status.md          # Activity status and task management
-│           └── query.md           # User query logging and tracking
-├── tasks/                         # Active task workspaces
-│   ├── 2025-07-23-1430-feature-development-OCM-456/
-│   ├── 2025-07-23-1445-code-review-alice-auth/
-│   └── 2025-07-23-1500-migration-check-v1.2-v1.3/
-├── projects/                      # Local project repositories
-│   ├── uhc-clusters-service/      # Example project
-│   │   ├── claude.md              # Project-specific configuration
-│   │   └── [project files]
-│   └── [other projects]/
-└── reports/                       # Generated reports and summaries
-    └── weekly-report-YYYY-MM-DD.md
+claude-workflow/                    # 🌍 Public workflow tools
+├── CLAUDE.md                      # Main workspace configuration
+├── README.md                      # This file
+├── CONTRIBUTING.md                # Contribution guide
+├── .gitignore                     # Public file patterns
+├── workspace-config.template.json # Configuration template
+├── .claude/                       # Claude Code configurations
+│   ├── bootstrap.md               # Initialization instructions
+│   ├── config.md                  # Global protocols
+│   └── commands/                  # Workflow command definitions
+│       ├── development/           # Development commands
+│       ├── design/                # Design document commands
+│       └── workspace/             # Workspace management
+├── docs/                          # Documentation
+│   ├── setup/                     # Setup guides
+│   ├── integration/               # Integration docs
+│   └── troubleshooting/           # Help guides
+└── scripts/                       # Setup and sync scripts
+    ├── init-fork.sh               # Fork initialization
+    ├── sync-upstream.sh           # Sync to upstream
+    └── update-from-upstream.sh    # Update from upstream
+```
+
+### **Private Content** (your fork only)
+```
+your-fork/                         # 🔒 Your private workspace
+├── [all public files above]      # Inherited from upstream
+├── workspace-config.json         # Your personal configuration
+├── workspace-activity.json       # Activity tracking
+├── projects/                      # Your private projects
+│   ├── home-lab/                  # Infrastructure projects
+│   ├── personal-app/              # Personal development
+│   └── client-work/               # Client projects
+├── tasks/                         # Task execution history
+├── reviews/                       # Design reviews
+└── reports/                       # Generated reports
 ```
 
 ## 🚀 Quick Start
 
-### Initial Setup
-
-1. **Clone this workspace repository:**
-   ```bash
-   git clone <workspace-repo-url>
-   cd <workspace-directory>
-   ```
-
-2. **Update configuration for your environment:**
-   ```bash
-   # Edit workspace-config.json to update usernames and projects
-   # Update the "user" section with your GitHub/GitLab usernames:
-   {
-     "user": {
-       "github_username": "your-github-username",
-       "gitlab_username": "your-gitlab-username"
-     }
-   }
-   # Add/remove projects in the "projects" array as needed
-   ```
-
-3. **Prime the workspace:**
-   ```bash
-   # Using Claude Code
-   /prime
-   ```
-   This will:
-   - Clone all configured projects
-   - Set up Git remotes (origin + your personal fork)
-   - Checkout specified branches
-   - Initialize activity tracking
-
-### Daily Usage
-
-**Start a development session:**
+### 1. **Fork the Repository**
 ```bash
-# Launch Claude Code from workspace root
-claude
+# Fork claude-workflow on GitHub to your account
+# Then clone YOUR fork (not the original)
+git clone git@github.com:YOUR-USERNAME/your-fork-name.git
+cd your-fork-name
 ```
 
-**Common commands:**
-- `/prime` - Set up or refresh all projects
-- `/pull` - Pull latest changes from origin main
-- `/status` - Review workspace activity and manage tasks
-- `/query` - Submit queries with comprehensive activity logging
-- Work on specific projects by navigating to `projects/<project-name>/`
-- All activity is automatically tracked in `workspace-activity.json`
+### 2. **Initialize Your Fork**
+```bash
+# Run the initialization script
+./scripts/init-fork.sh
+```
+This automatically:
+- ✅ Configures upstream remote to claude-workflow
+- ✅ Sets up workspace configuration from template
+- ✅ Installs git hooks for contribution safety
+- ✅ Creates proper .gitignore patterns
+- ✅ Fetches latest upstream changes
 
-## 🔧 Configuration
-
-### Project Configuration
-
-Projects are defined in `workspace-config.json`:
-
+### 3. **Configure Your Workspace**
+```bash
+# Edit your personal configuration
+nano workspace-config.json
+```
+Update with your details:
 ```json
 {
+  "user": {
+    "name": "Your Name",
+    "github_username": "your-github-username"
+  },
   "projects": [
     {
-      "alias": "cs",
-      "name": "uhc-clusters-service",
-      "platform": "gitlab",
-      "ssh_url": "git@gitlab.cee.redhat.com:service/uhc-clusters-service.git",
-      "branch": "master",
-      "local_path": "./projects/uhc-clusters-service",
-      "active": true
+      "alias": "my-project",
+      "name": "My Project",
+      "repository": "git@github.com:you/my-project.git",
+      "local_path": "./projects/my-project"
     }
   ]
 }
 ```
 
-### Git Remote Setup
+### 4. **Start Using Claude Code**
+```bash
+# Launch Claude Code from workspace root
+claude
+```
 
-Each project is configured with:
-- **origin**: Points to the upstream/service repository
-- **[username]**: Points to your personal fork
-  - GitLab projects: `username` remote
-  - GitHub projects: `username` remote
+## 🔄 **Workflow Usage**
 
-This allows:
-- `git push origin <branch>` - Push to upstream (for direct commits)
-- `git push username <branch>` - Push to your fork (for MRs/PRs)
+### **Daily Development**
+```bash
+# Work normally on your fork - everything is private
+git add .
+git commit -m "feat: add new project configuration"
+git push origin main
+```
 
-## 🔄 Workflows
+### **Contributing Improvements**
+When you improve the **public workflow tools**:
+```bash
+# Sync only public files to upstream
+./scripts/sync-upstream.sh
+```
+This safely pushes only `.claude/`, `docs/`, `CLAUDE.md`, etc. to claude-workflow.
 
-### Project Priming Workflow
+### **Getting Updates**
+Pull latest workflow improvements into your fork:
+```bash
+# Update your fork with upstream changes
+./scripts/update-from-upstream.sh
+```
 
-Automatically sets up all configured projects:
-1. Clones missing repositories
-2. Configures Git remotes
-3. Checks out specified branches
-4. Updates project metadata
-5. Initializes activity tracking
+### **Available Commands**
+- `/prime` - Set up or refresh all projects  
+- `/pull` - Pull latest changes from origin main
+- `/status` - Review workspace activity and manage tasks
+- `/query` - Submit queries with comprehensive logging
+- All activity is automatically tracked in `workspace-activity.json`
 
-### Activity Logging
+## 🔧 **Configuration**
 
-All development activities are tracked in `workspace-activity.json`:
-- Task creation and completion
-- Multi-agent coordination
-- Progress tracking
-- Audit trails
+### **Workspace Configuration**
+Your `workspace-config.json` (private, not synced to upstream):
 
-### Code Review Workflow
+```json
+{
+  "user": {
+    "name": "Your Name",
+    "github_username": "your-github-username",
+    "jira_domain": "your-domain.atlassian.net"
+  },
+  "projects": [
+    {
+      "alias": "home-lab",
+      "name": "Home Lab Infrastructure",
+      "platform": "github",
+      "ssh_url": "git@github.com:you/home-lab.git",
+      "local_path": "./projects/home-lab",
+      "tags": ["infrastructure", "k8s", "ansible"]
+    },
+    {
+      "alias": "web-app",
+      "name": "Personal Web App",
+      "ssh_url": "git@github.com:you/web-app.git",
+      "local_path": "./projects/web-app",
+      "jira_project_key": "WEB"
+    }
+  ]
+}
+```
 
-Integrated code review process:
-- Reviews commits from forks
-- Security and performance analysis
-- Documentation verification
-- Testing requirements
+### **Security Model**
+- **Private Data**: `workspace-config.json`, `projects/`, `tasks/`, etc. stay in your fork
+- **Public Tools**: `.claude/`, `docs/`, templates sync to upstream
+- **Git Hooks**: Prevent accidental upstream pushes of private data
+- **Template System**: `workspace-config.template.json` for public sharing
+
+## 🛡️ **Security & Privacy**
+
+### **What Stays Private**
+- ✅ Your `workspace-config.json` with personal details
+- ✅ All projects in `projects/` directory
+- ✅ Task execution history in `tasks/`
+- ✅ Generated reports and reviews
+- ✅ Any files matching patterns in `.gitignore`
+
+### **What Gets Shared**
+- 🌍 Workflow improvements to `.claude/commands/`
+- 🌍 Documentation enhancements in `docs/`
+- 🌍 Setup script improvements
+- 🌍 Template configurations (sanitized)
+
+### **Safety Features**
+- **Git Hooks**: Warn before pushing to upstream
+- **Path Filtering**: Only approved paths sync to upstream  
+- **Template System**: Share configurations without personal data
+- **Automatic Sanitization**: Scripts remove sensitive information
 
 ## 🛠️ Multi-Agent Coordination
 
@@ -236,14 +275,30 @@ Generate custom reports for specific time periods or projects.
 5. **Document significant decisions** in activity log
 6. **Run `/prime` regularly** to keep projects synchronized
 
-## 📝 Contributing
+## 📝 **Contributing**
 
-When adding new projects:
+We welcome contributions to improve the Claude workflow experience! 
 
-1. Update `workspace-config.json` with project details
-2. Run `/prime` to configure the new project
-3. Add project-specific `claude.md` if needed
-4. Update this README with project information
+### **Quick Contribution**
+1. **Fork** the repository to your GitHub account
+2. **Initialize** your fork with `./scripts/init-fork.sh`
+3. **Improve** public workflow tools (`.claude/`, `docs/`, etc.)
+4. **Sync** changes with `./scripts/sync-upstream.sh`
+5. **Create PR** on the upstream claude-workflow repository
+
+### **Detailed Guide**
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+- Complete setup instructions
+- Security guidelines
+- Development workflows
+- Troubleshooting help
+
+### **What to Contribute**
+- 🔧 New Claude Code commands
+- 📚 Documentation improvements
+- 🐛 Bug fixes in setup scripts
+- 🎯 Workflow enhancements
+- 💡 Template improvements
 
 ## 📄 License
 
