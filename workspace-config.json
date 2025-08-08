@@ -28,11 +28,25 @@
         "priority": "high",
         "active": true,
         "last_synced": "2025-07-23T14:35:00Z"
+      },
+      {
+        "alias": "mcplex",
+        "name": "MCPlex",
+        "platform": "github",
+        "url": "https://github.com/ciaranRoche/mcplex.git",
+        "ssh_url": "git@github.com:ciaranRoche/mcplex.git",
+        "description": "A high-performance Go-based MCP server enabling AI chatbots to interact with Plex Media Server through standardized Model Context Protocol tools.",
+        "local_path": "./projects/mcplex",
+        "branch": "main",
+        "tags": ["backend", "golang", "mcp", "plex", "ai", "chatbot", "media", "k3s", "redis"],
+        "priority": "high",
+        "active": true,
+        "last_synced": "2025-08-01T00:00:00Z"
       }
     ],
     "metadata": {
-      "total_projects": 1,
-      "active_projects": 1,
-      "last_updated": "2025-07-23T14:35:00Z"
+      "total_projects": 2,
+      "active_projects": 2,
+      "last_updated": "2025-08-01T00:00:00Z"
     }
   }
