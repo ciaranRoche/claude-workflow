@@ -1,0 +1,22 @@
+{
+  "user": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "github_username": "your-github-username",
+    "jira_domain": "your-domain.atlassian.net"
+  },
+  "projects": {
+    "example-project": {
+      "name": "Example Project",
+      "description": "Template project configuration",
+      "repository": "git@github.com:your-username/example-project.git",
+      "local_path": "./projects/example-project",
+      "jira_project_key": "EX"
+    }
+  },
+  "settings": {
+    "default_branch": "main",
+    "auto_sync": false,
+    "task_retention_days": 30
+  }
+}

@@ -345,9 +345,9 @@ gh --version
 - **[GitHub CLI Documentation](https://cli.github.com/manual/)**
 - **[GitHub CLI GitHub Repository](https://github.com/cli/cli)**
 - **[GitHub API Documentation](https://docs.github.com/en/rest)**
-- **[Workspace Integration Guide](/home/croche/Work/projects/docs/integration/workspace-integration.md)**
-- **[GitHub CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/github-cli-troubleshooting.md)**
+- **[Workspace Integration Guide](../integration/workspace-integration.md)**
+- **[GitHub CLI Troubleshooting](../troubleshooting/github-cli-troubleshooting.md)**
 
 ---
 
-**Next Steps**: After completing GitHub CLI setup, consider installing JIRA CLI if you plan to use JIRA integration features. See the **[JIRA CLI Setup Guide](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)**.
+**Next Steps**: After completing GitHub CLI setup, consider installing JIRA CLI if you plan to use JIRA integration features. See the **[JIRA CLI Setup Guide](jira-cli-setup.md)**.

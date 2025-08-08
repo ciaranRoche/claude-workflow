@@ -1,31 +1,49 @@
 # Claude Code Workspace Documentation
 
-This documentation directory provides comprehensive guides for setting up and using the Claude Code workspace system.
+Comprehensive guides for the **fork-based Claude Code workspace system** that separates public workflow tools from private project data.
 
-## Quick Start
+## 🚀 Quick Start
 
-**New to the workspace?** Start with the setup guides:
+**New to the workspace?** Follow the fork-based setup:
 
-1. **[Prerequisites](/home/croche/Work/projects/docs/setup/prerequisites.md)** - Overview of all CLI requirements
-2. **[GitHub CLI Setup](/home/croche/Work/projects/docs/setup/github-cli-setup.md)** - Complete GitHub CLI installation and configuration
-3. **[JIRA CLI Setup](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)** - Complete JIRA CLI installation and configuration
+1. **[Fork Setup Guide](#fork-setup)** - Initialize your private fork with secure configuration
+2. **[Prerequisites](setup/prerequisites.md)** - CLI tools required for workspace commands
+3. **[GitHub CLI Setup](setup/github-cli-setup.md)** - GitHub CLI installation and authentication
+4. **[JIRA CLI Setup](setup/jira-cli-setup.md)** - JIRA CLI setup for issue management
 
-## Documentation Structure
+## 🏗️ Fork-Based Architecture
 
-### Core Guides
-- **[Claude Code Agents](/home/croche/Work/projects/docs/claude-code-agents.md)** - Complete guide to using specialized Claude Code agents for focused tasks
+This workspace uses a **dual-remote model**:
 
-### Setup Guides
-- **[Prerequisites](/home/croche/Work/projects/docs/setup/prerequisites.md)** - All CLI tools required by workspace commands
-- **[GitHub CLI Setup](/home/croche/Work/projects/docs/setup/github-cli-setup.md)** - GitHub CLI installation, authentication, and configuration
-- **[JIRA CLI Setup](/home/croche/Work/projects/docs/setup/jira-cli-setup.md)** - JIRA CLI installation, authentication, and project setup
+### **Public Repository** (claude-workflow)
+- 🌍 **Shared workflow tools**: `.claude/`, `docs/`, scripts
+- 🌍 **Community contributions**: Improvements to workflow system
+- 🌍 **Templates**: Configuration templates without personal data
 
-### Troubleshooting
-- **[GitHub CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/github-cli-troubleshooting.md)** - Common GitHub CLI issues and solutions
-- **[JIRA CLI Troubleshooting](/home/croche/Work/projects/docs/troubleshooting/jira-cli-troubleshooting.md)** - Common JIRA CLI issues and solutions
+### **Private Fork** (your-fork)
+- 🔒 **Personal projects**: Your development work in `projects/`
+- 🔒 **Activity history**: Task tracking in `workspace-activity.json`
+- 🔒 **Personal config**: Your `workspace-config.json` settings
 
-### Integration
-- **[Workspace Integration](/home/croche/Work/projects/docs/integration/workspace-integration.md)** - How CLI tools integrate with Claude Code commands
+## 📋 Documentation Structure
+
+### 🔧 Fork Setup
+- **[Fork Setup Guide](#fork-setup)** - Complete fork initialization and configuration
+- **[Contributing Guide](../CONTRIBUTING.md)** - How to contribute workflow improvements
+- **[Security Model](#security--privacy)** - Understanding public vs private content
+
+### 🛠️ Setup Guides  
+- **[Prerequisites](setup/prerequisites.md)** - CLI tools required for workspace commands
+- **[GitHub CLI Setup](setup/github-cli-setup.md)** - GitHub CLI installation and authentication
+- **[JIRA CLI Setup](setup/jira-cli-setup.md)** - JIRA CLI setup for issue management
+
+### 🎯 Usage Guides
+- **[Claude Code Agents](claude-code-agents.md)** - Specialized agents for focused tasks
+- **[Workspace Integration](integration/workspace-integration.md)** - CLI tool integration with workspace
+
+### 🚨 Troubleshooting
+- **[GitHub CLI Troubleshooting](troubleshooting/github-cli-troubleshooting.md)** - GitHub CLI issues and solutions
+- **[JIRA CLI Troubleshooting](troubleshooting/jira-cli-troubleshooting.md)** - JIRA CLI issues and solutions
 
 ### Automation
 - **[Workspace Priming Scripts](/home/croche/Work/projects/docs/automation/workspace-priming-scripts.md)** - Comprehensive documentation for automation scripts that handle repository management during workspace setup
@@ -62,7 +80,7 @@ The workspace includes specialized agents for focused tasks:
   - Documents architectural decisions and trade-offs
   - Preserves important insights for future reference
 
-**Learn more**: See the complete [Claude Code Agents Guide](/home/croche/Work/projects/docs/claude-code-agents.md) for detailed usage instructions and best practices.
+**Learn more**: See the complete [Claude Code Agents Guide](claude-code-agents.md) for detailed usage instructions and best practices.
 
 ## Support
 
@@ -73,15 +91,59 @@ If you encounter issues not covered in the troubleshooting guides:
 3. Test CLI commands independently before using with Claude Code
 4. Review the workspace command files for specific requirements
 
-## Contributing
+## 🔧 Fork Setup
 
-When adding new workspace commands that require CLI tools:
+### Initial Setup
+```bash
+# 1. Fork claude-workflow repository on GitHub
+# 2. Clone YOUR fork (not the original)
+git clone git@github.com:YOUR-USERNAME/your-fork-name.git
+cd your-fork-name
 
-1. Update the prerequisites documentation
-2. Add specific setup instructions if needed
-3. Include troubleshooting scenarios you encounter
-4. Update this README with the new command requirements
+# 3. Initialize your fork
+./scripts/init-fork.sh
+```
+
+### Configure Your Workspace
+```bash
+# Edit your personal configuration
+nano workspace-config.json
+```
+
+### Daily Usage
+```bash
+# Work on your private projects normally
+git add .; git commit -m "feat: my changes"; git push origin main
+
+# Contribute workflow improvements
+./scripts/sync-upstream.sh
+
+# Get latest workflow updates  
+./scripts/update-from-upstream.sh
+```
+
+## 🛡️ Security & Privacy
+
+### What Stays Private
+- ✅ Your `workspace-config.json` with personal details
+- ✅ All projects in `projects/` directory
+- ✅ Task history in `tasks/`, `reviews/`, `reports/`
+- ✅ Any files matching `.gitignore` patterns
+
+### What Gets Shared (when contributing)
+- 🌍 Workflow improvements to `.claude/commands/`
+- 🌍 Documentation enhancements in `docs/`
+- 🌍 Setup script improvements in `scripts/`
+- 🌍 Template configurations (sanitized)
+
+## 📝 Contributing
+
+See the complete **[Contributing Guide](../CONTRIBUTING.md)** for:
+- Fork-based contribution workflow
+- Security guidelines and best practices
+- Pull request process
+- Troubleshooting help
 
 ---
 
-**Note**: This documentation is automatically maintained to stay synchronized with workspace command requirements. All file paths in this documentation use absolute paths for clarity and reliability.
+**Note**: This documentation reflects the fork-based architecture. All workflow improvements are welcome via the secure contribution model.
