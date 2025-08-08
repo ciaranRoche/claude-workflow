@@ -1,0 +1,12 @@
+# OWNERS file for claude-workflow repository
+# Defines who can approve and merge changes
+
+approvers:
+  - ciaranRoche
+
+reviewers:
+  - ciaranRoche
+
+# Auto-assign reviewers for different areas
+options:
+  no_parent_owners: true
