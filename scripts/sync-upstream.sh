@@ -73,14 +73,16 @@ fi
 TEMP_DIR=$(mktemp -d)
 echo -e "${YELLOW}📦 Extracting public files to: $TEMP_DIR${NC}"
 
-# Copy public files to temp directory
+# Copy public files to temp directory with proper directory structure
 for path in "${PUBLIC_PATHS[@]}"; do
     if [ -e "$path" ]; then
         # Create directory structure in temp
         if [ -d "$path" ]; then
             cp -r "$path" "$TEMP_DIR/"
         else
-            cp "$path" "$TEMP_DIR/"
+            # For files, preserve the directory structure
+            mkdir -p "$TEMP_DIR/$(dirname "$path")"
+            cp "$path" "$TEMP_DIR/$path"
         fi
         echo -e "${GREEN}✅ Copied: $path${NC}"
     else
