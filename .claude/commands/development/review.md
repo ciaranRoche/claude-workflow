@@ -249,6 +249,10 @@ After completing the review:
 2. **Update Project Metadata**: Update `last_synced` if applicable
 3. **Log Task Completion**: Record final activity entry with outcomes
 
+### Step 13: Document Review
+
+1. **Document Review**: Using the conversation-note-taker agent, generate note for this code review
+
 ## Usage Examples
 
 **Basic Review:**

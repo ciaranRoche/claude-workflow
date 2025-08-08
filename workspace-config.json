@@ -20,7 +20,7 @@
         "name": "home-lab",
         "platform": "github",
         "url": "https://github.com/ciaranRoche/home-lab.git",
-        "ssh_url": "gigit@github.com:ciaranRoche/home-lab.git",
+        "ssh_url": "git@github.com:ciaranRoche/home-lab.git",
         "description": "A comprehensive home lab setup running on Raspberry Pi K3s cluster with self-hosted services, monitoring, and automation.",
         "local_path": "./projects/home-lab",
         "branch": "main",

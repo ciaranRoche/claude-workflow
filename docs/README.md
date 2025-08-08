@@ -45,6 +45,9 @@ This workspace uses a **dual-remote model**:
 - **[GitHub CLI Troubleshooting](troubleshooting/github-cli-troubleshooting.md)** - GitHub CLI issues and solutions
 - **[JIRA CLI Troubleshooting](troubleshooting/jira-cli-troubleshooting.md)** - JIRA CLI issues and solutions
 
+### Automation
+- **[Workspace Priming Scripts](/home/croche/Work/projects/docs/automation/workspace-priming-scripts.md)** - Comprehensive documentation for automation scripts that handle repository management during workspace setup
+
 ## Commands That Require CLI Tools
 
 ### GitHub CLI Commands
