@@ -9,6 +9,8 @@ workspace-config.json
 
 # Workspace tracking and output (private data)
 workspace-activity.json
+workspace-activity-archive-*.json
+workspace-activity-backup.json
 /tasks
 /reviews  
 /reports
